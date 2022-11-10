@@ -4,9 +4,11 @@ import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:sliding_up_panel/sliding_up_panel.dart';
 
 class CameraScreen extends StatefulWidget {
-  const CameraScreen({super.key});
+  PanelController panelController;
+  CameraScreen({super.key, required this.panelController});
 
   @override
   State<CameraScreen> createState() => _CameraScreenState();
@@ -41,10 +43,15 @@ class _CameraScreenState extends State<CameraScreen> {
   Widget build(BuildContext context) {
     if (cameraController?.value.isInitialized ?? true ) {
       return cameraPreview();
-    }
-    return Center(
+    }else if(isImageTaken){
+      return Image.file(imageTaken);
+    }else{
+      return Center(
       child: CircularProgressIndicator(),
     );
+    }
+    
+
   }
   
   void startCamera() async{
@@ -68,7 +75,10 @@ class _CameraScreenState extends State<CameraScreen> {
         (cameraController != null) 
         ? CameraPreview(cameraController!)
         : Container(),
-        button(Icons.camera)
+        button(Icons.camera),
+        (isImageTaken) 
+        ? Image.file(imageTaken) 
+        : Container()
       ],
     );
   }
@@ -81,16 +91,20 @@ class _CameraScreenState extends State<CameraScreen> {
             if (file != null) {
               print("file saved at ${file.path}");
               imageTaken = File(file.path);
-              
+              setState(() {
+                isImageTaken = true;
+              });
             }
           }
         });
+
+        widget.panelController.open();
       },
       child: Align(
         alignment: Alignment.bottomCenter,
         child: FittedBox(
           child: Container(
-            margin: const EdgeInsets.only(bottom: 32),
+            margin: const EdgeInsets.only(bottom: 120),
             height: 64,
             width: 64,
             decoration: BoxDecoration(
