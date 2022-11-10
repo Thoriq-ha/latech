@@ -14,16 +14,26 @@ class HalalServices {
 
   static Future<List<String>> getHalal(
       {required String input, required List<String> listDataset}) async {
-    List<String> listInput = input.split(' ');
-    List<String> output = [];
+    listDataset.add('halal');
+
+    print(input);
+    List<String> listInput = input.multiSplit([' ', '-', '\n']);
+    Set<String> output = {};
+    print(listInput.toString());
     for (var v in listInput) {
-      var h = v.replaceAll(RegExp(r'[^\w\s]+'), '');
+      var h = v.toLowerCase().replaceAll(RegExp(r'[^\w\s]+'), '');
       for (var ds in listDataset) {
         if (ds.toLowerCase() == h) {
           output.add(h);
         }
       }
     }
-    return output;
+    return output.toList();
   }
+}
+
+extension UtilExtensions on String {
+  List<String> multiSplit(Iterable<String> delimeters) => delimeters.isEmpty
+      ? [this]
+      : split(RegExp(delimeters.map(RegExp.escape).join('|')));
 }
