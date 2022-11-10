@@ -1,23 +1,32 @@
 import 'package:get/get.dart';
+import 'package:halalin/app/data/models/ingredient.dart';
+import 'package:halalin/app/services/halal_services.dart';
 
 class HomeController extends GetxController {
-  //TODO: Implement HomeController
+  RxList<Ingredient> data = RxList();
+  List<String> kode = [];
+  RxList<String> result = RxList();
 
-  final count = 0.obs;
   @override
   void onInit() {
-    super.onInit();
+    getData();
   }
 
-  @override
-  void onReady() {
-    super.onReady();
+  Future<void> getData() async {
+    var res = await HalalServices.getDataService();
+    data.addAll(res);
+    kode.clear();
+    for (var v in res) {
+      kode.add(v.kode);
+    }
   }
 
-  @override
-  void onClose() {
-    super.onClose();
-  }
+  Future<List<String>> getResult({required String input}) async {
+    await getData();
+    result.clear();
 
-  void increment() => count.value++;
+    var res = await HalalServices.getHalal(input: input, listDataset: kode);
+    result.addAll(res);
+    return res;
+  }
 }
