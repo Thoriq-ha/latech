@@ -1,7 +1,7 @@
+import 'dart:io';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
-import 'package:halalin/app/modules/home/views/my_home.dart';
 
 import '../controllers/home_controller.dart';
 
@@ -10,35 +10,42 @@ class HomeView extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('HomeView'),
-        centerTitle: true,
+      body: Stack(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(10),
+            child: Column(
+              children: [
+                Expanded(child: Obx(() {
+                  return ListView(
+                    children: [
+                      controller.path.isEmpty
+                          ? Container()
+                          : Image.file(File(controller.path.value)),
+                      controller.bload.value
+                          ? Column(
+                              children: const [CircularProgressIndicator()])
+                          : controller.result.isEmpty
+                              ? const Text('Is Empty')
+                              : Text(controller.result.toString()),
+                    ],
+                  );
+                }))
+              ],
+            ),
+          ),
+        ],
       ),
-      body: MyHomePage(),
-      // body: Center(
-      //   child: Obx(() {
-      //     if (controller.data.isNotEmpty) {
-      //       String input = 'Ini adalah tex (e304, @e101';
-      //       return Column(
-      //         children: [
-      //           Row(
-      //             children: [
-      //               Text('Input : $input '),
-      //             ],
-      //           ),
-      //           Text('Hasil : ${controller.result} '),
-      //           ElevatedButton(
-      //               onPressed: () async {
-      //                 await controller.getResult(input: input);
-      //               },
-      //               child: Text('Cek'))
-      //         ],
-      //       );
-      //     } else {
-      //       return Text('Loading');
-      //     }
-      //   }),
-      // ),
+
+      floatingActionButton: kIsWeb
+          ? Container()
+          : FloatingActionButton(
+              onPressed: () {
+                controller.runFilePiker();
+              },
+              tooltip: 'OCR',
+              child: const Icon(Icons.add),
+            ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
