@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -10,42 +11,41 @@ class HomeView extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(10),
-            child: Column(
-              children: [
-                Expanded(child: Obx(() {
-                  return ListView(
-                    children: [
-                      controller.path.isEmpty
-                          ? Container()
-                          : Image.file(File(controller.path.value)),
-                      controller.bload.value
-                          ? Column(
-                              children: const [CircularProgressIndicator()])
-                          : controller.result.isEmpty
-                              ? const Text('Is Empty')
-                              : Text(controller.result.toString()),
-                    ],
-                  );
-                }))
-              ],
+      body: Obx(() {
+        return controller.viewBody[controller.currentIndex.value];
+      }),
+      bottomNavigationBar: Obx(() {
+        return BottomNavyBar(
+          selectedIndex: controller.currentIndex.value,
+          showElevation: true,
+          containerHeight: 60,
+          itemCornerRadius: 16,
+          curve: Curves.easeIn,
+          onItemSelected: (index) {
+            controller.currentIndex.value = index;
+          },
+          items: <BottomNavyBarItem>[
+            BottomNavyBarItem(
+              icon: const Icon(Icons.apps),
+              title: const Text('Home'),
+              activeColor: Colors.green,
+              textAlign: TextAlign.center,
             ),
-          ),
-        ],
-      ),
-
-      floatingActionButton: kIsWeb
-          ? Container()
-          : FloatingActionButton(
-              onPressed: () {
-                controller.runFilePiker();
-              },
-              tooltip: 'OCR',
-              child: const Icon(Icons.add),
-            ), // This trailing comma makes auto-formatting nicer for build methods.
+            BottomNavyBarItem(
+              icon: const Icon(Icons.camera),
+              title: const Text('Scan'),
+              activeColor: Colors.green,
+              textAlign: TextAlign.center,
+            ),
+            BottomNavyBarItem(
+              icon: const Icon(Icons.settings),
+              title: const Text('Settings'),
+              activeColor: Colors.green,
+              textAlign: TextAlign.center,
+            ),
+          ],
+        );
+      }),
     );
   }
 }

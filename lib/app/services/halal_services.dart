@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:halalin/app/data/models/ingredient.dart';
 
 class HalalServices {
+  // get dataset
   static Future<List<Ingredient>> getDataService() async {
     var load = await rootBundle.loadString('assets/dataset/dataset\.json');
     var data = json.decode(load);
@@ -12,23 +13,29 @@ class HalalServices {
     return ingredients;
   }
 
-  static Future<List<String>> getHalal(
-      {required String input, required List<String> listDataset}) async {
-    listDataset.add('halal');
-
-    print(input);
+  // get result data
+  static Future<List<Ingredient>> getHalal(
+      {required String input, required List<Ingredient> ingrident}) async {
+    //set list of kode
+    List<String> kodes = [];
+    for (var v in ingrident) {
+      kodes.add(v.kode);
+    }
+    //preprocessing seperate by space, line and break
     List<String> listInput = input.multiSplit([' ', '-', '\n']);
-    Set<String> output = {};
-    print(listInput.toString());
+    Set<Ingredient> outputList = {};
+    //matching input and kode
     for (var v in listInput) {
-      var h = v.toLowerCase().replaceAll(RegExp(r'[^\w\s]+'), '');
-      for (var ds in listDataset) {
-        if (ds.toLowerCase() == h) {
-          output.add(h);
+      var cleanWord = v.toLowerCase().replaceAll(RegExp(r'[^\w\s]+'), '');
+      for (var kode in kodes) {
+        if (kode.toLowerCase() == cleanWord) {
+          Ingredient output =
+              ingrident.firstWhere((element) => element.kode == kode);
+          outputList.add(output);
         }
       }
     }
-    return output.toList();
+    return outputList.toList();
   }
 }
 

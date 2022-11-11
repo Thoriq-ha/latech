@@ -1,18 +1,20 @@
-import 'dart:io';
-import 'dart:typed_data';
-
-import 'package:flutter/foundation.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter_tesseract_ocr/android_ios.dart';
 import 'package:get/get.dart';
 import 'package:halalin/app/data/models/ingredient.dart';
+import 'package:halalin/app/modules/home/views/tabs/ocr_screen.dart';
 import 'package:halalin/app/services/halal_services.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:path_provider/path_provider.dart';
 
 class HomeController extends GetxController {
   RxList<Ingredient> data = RxList();
-  List<String> kode = [];
-  RxList<String> result = RxList();
+  RxList<Ingredient> result = RxList();
+  RxInt currentIndex = 0.obs;
+  List<Widget> viewBody = [
+    OcrScreen(),
+    Center(child: Text('Scan')),
+    Center(child: Text('Setting')),
+  ];
 
   RxString ocrText = ''.obs;
   String lang = "eng";
@@ -20,37 +22,33 @@ class HomeController extends GetxController {
   RxBool bload = false.obs;
 
   Future<void> getData() async {
+    data.clear();
     var res = await HalalServices.getDataService();
     data.addAll(res);
-    kode.clear();
-    for (var v in res) {
-      kode.add(v.kode);
-    }
   }
 
-  Future<List<String>> getResult({required String input}) async {
+  Future<void> getResult({required String input}) async {
     await getData();
-    result.clear();
 
-    var res = await HalalServices.getHalal(input: input, listDataset: kode);
+    result.clear();
+    var res = await HalalServices.getHalal(input: input, ingrident: data.value);
     result.addAll(res);
-    return res;
   }
 
   void ocr(url) async {
     path.value = url;
-    if (kIsWeb == false &&
-        (url.indexOf("http://") == 0 || url.indexOf("https://") == 0)) {
-      Directory tempDir = await getTemporaryDirectory();
-      HttpClient httpClient = HttpClient();
-      HttpClientRequest request = await httpClient.getUrl(Uri.parse(url));
-      HttpClientResponse response = await request.close();
-      Uint8List bytes = await consolidateHttpClientResponseBytes(response);
-      String dir = tempDir.path;
-      File file = File('$dir/test.jpg');
-      await file.writeAsBytes(bytes);
-      url = file.path;
-    }
+    // if (kIsWeb == false &&
+    //     (url.indexOf("http://") == 0 || url.indexOf("https://") == 0)) {
+    //   Directory tempDir = await getTemporaryDirectory();
+    //   HttpClient httpClient = HttpClient();
+    //   HttpClientRequest request = await httpClient.getUrl(Uri.parse(url));
+    //   HttpClientResponse response = await request.close();
+    //   Uint8List bytes = await consolidateHttpClientResponseBytes(response);
+    //   String dir = tempDir.path;
+    //   File file = File('$dir/test.jpg');
+    //   await file.writeAsBytes(bytes);
+    //   url = file.path;
+    // }
     bload.value = true;
 
     ocrText.value =
