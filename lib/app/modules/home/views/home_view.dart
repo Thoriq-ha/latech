@@ -17,14 +17,6 @@ class HomeView extends GetView<HomeController> {
         title: const Text('HomeView'),
         centerTitle: true,
       ),
-      // body: SlidingUpPanel(
-      //   maxHeight: getDeviceHeight(context) * 0.8,
-      //   minHeight: 0,
-      //   controller: panelController,
-      //   panel: Center(
-      //     child: Text("wakwaw"),
-      //   ),
-      //   body: CameraScreen(panelController: panelController,))
       body: Obx(() {
         return controller.viewBody[controller.currentIndex.value];
       }),
