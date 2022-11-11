@@ -2,24 +2,30 @@ name: halalin
 version: 1.0.0+1
 publish_to: none
 description: A new Flutter project.
-environment: 
-  sdk: '>=2.17.6 <3.0.0'
+environment:
+  sdk: ">=2.17.6 <3.0.0"
 
-dependencies: 
-  cupertino_icons: ^1.0.2
-  get: 4.6.5
-  flutter: 
-    sdk: flutter
+dependencies:
+  bottom_navy_bar: ^6.0.0
   camera: ^0.10.0+4
+  cupertino_icons: ^1.0.2
+  flutter:
+    sdk: flutter
+  flutter_tesseract_ocr: ^0.4.20
+  get: 4.6.5
+  image_picker: ^0.8.6
+  path_provider: ^2.0.11
   sliding_up_panel: ^2.0.0+1
 
-dev_dependencies: 
+dev_dependencies:
   flutter_lints: ^2.0.0
-  flutter_test: 
+  flutter_test:
     sdk: flutter
 
-flutter: 
+flutter:
   uses-material-design: true
   assets:
     - assets/images/logo.png
-
+    - assets/
+    - assets/dataset/
+    - assets/tessdata/
