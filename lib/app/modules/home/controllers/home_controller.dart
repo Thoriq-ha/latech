@@ -1,3 +1,4 @@
+import 'package:camera/camera.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_tesseract_ocr/android_ios.dart';
 import 'package:get/get.dart';
@@ -15,6 +16,13 @@ class HomeController extends GetxController {
     Center(child: Text('Scan')),
     Center(child: Text('Setting')),
   ];
+
+  final count = 0.obs;
+
+  @override
+  void onInit() {
+    super.onInit();
+  }
 
   RxString ocrText = ''.obs;
   String lang = "eng";
@@ -59,6 +67,9 @@ class HomeController extends GetxController {
     bload.value = false;
   }
 
+  void increment() => count.value++;
+
+  // List setCameras() =>
   void runFilePiker() async {
     final pickedFile =
         await ImagePicker().pickImage(source: ImageSource.gallery);
