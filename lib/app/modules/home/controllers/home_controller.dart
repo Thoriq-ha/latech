@@ -1,4 +1,3 @@
-import 'package:camera/camera.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_tesseract_ocr/android_ios.dart';
 import 'package:get/get.dart';
@@ -12,9 +11,9 @@ class HomeController extends GetxController {
   RxList<Ingredient> result = RxList();
   RxInt currentIndex = 0.obs;
   List<Widget> viewBody = [
-    OcrScreen(),
-    Center(child: Text('Scan')),
-    Center(child: Text('Setting')),
+    const OcrScreen(),
+    Container(),
+    const Center(child: Text('Setting')),
   ];
 
   final count = 0.obs;
