@@ -1,7 +1,11 @@
 import 'package:bottom_navy_bar/bottom_navy_bar.dart';
+import 'package:camera/camera.dart';
+import 'dart:io';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:halalin/app/routes/app_pages.dart';
+import 'package:halalin/app/constant/values.dart';
+// import 'package:halalin/app/modules/home/views/camera_screen.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 
 import '../controllers/home_controller.dart';
@@ -36,9 +40,6 @@ class HomeView extends GetView<HomeController> {
           itemCornerRadius: 16,
           curve: Curves.easeIn,
           onItemSelected: (index) {
-            if (index == 1) {
-              Get.toNamed(Routes.OCR);
-            }
             controller.currentIndex.value = index;
           },
           items: <BottomNavyBarItem>[
