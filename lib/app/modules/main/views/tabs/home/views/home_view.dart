@@ -35,7 +35,7 @@ class HomeView extends GetView<HomeController> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text("Halal Food", style: textCustom(semiBoldFont, 20)),
+              Text("Halal Food", style: textCustom(semiBoldFont, 20, Colors.black)),
               Text("Foods with no pork or alcohol", style: textMediumDefault,),
             ],
           ),
@@ -49,7 +49,7 @@ class HomeView extends GetView<HomeController> {
             maxCrossAxisExtent: 200.0,
             mainAxisSpacing: 10.0,
             crossAxisSpacing: 10.0,
-            childAspectRatio: 0.8,
+            childAspectRatio: 0.7,
           ),
           delegate: SliverChildBuilderDelegate(
             (BuildContext context, int index) {
@@ -68,6 +68,24 @@ class HomeView extends GetView<HomeController> {
                       borderRadius: BorderRadius.all(Radius.circular(24))),
                   child: Stack(
                     children: [
+                      Align(
+                        alignment: Alignment.topRight,
+                        child: IconButton(
+                            onPressed: (){},
+                            icon: const Icon(Icons.bookmark_border, size: 24,)),
+                      ),
+                      Align(
+                        alignment: Alignment.bottomCenter,
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+                          child: Expanded(
+                              child: Text(
+                                products[index].nama,
+                                maxLines: 1,
+                                style: textMediumDefault,
+                              )),
+                        ),
+                      ),
                       Align(
                         alignment: Alignment.topCenter,
                         child: Container(

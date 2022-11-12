@@ -15,10 +15,10 @@ FontWeight boldFont = FontWeight.w700;
 
 TextStyle textThinDefault = const TextStyle(fontFamily: 'Poppins', fontWeight: FontWeight.w100, fontSize: 14);
 TextStyle textRegularDefault = const TextStyle(fontFamily: 'Poppins', fontWeight: FontWeight.w400, fontSize: 14);
-TextStyle textMediumDefault = const TextStyle(fontFamily: 'Poppins', fontWeight: FontWeight.w500, fontSize: 14);
+TextStyle textMediumDefault = const TextStyle(fontFamily: 'Poppins', fontWeight: FontWeight.w500, fontSize: 14,);
 TextStyle textSemiBoldDefault = const TextStyle(fontFamily: 'Poppins', fontWeight: FontWeight.w600, fontSize: 14);
 TextStyle textBoldDefault = const TextStyle(fontFamily: 'Poppins', fontWeight: FontWeight.w700, fontSize: 14);
 
-TextStyle textCustom(FontWeight fontWeight, double fontSize){
-  return TextStyle(fontFamily: 'Poppins', fontWeight: fontWeight, fontSize: fontSize);
+TextStyle textCustom(FontWeight fontWeight, double fontSize, Color color){
+  return TextStyle(fontFamily: 'Poppins', fontWeight: fontWeight, fontSize: fontSize, color: color);
 }
