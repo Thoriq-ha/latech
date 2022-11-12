@@ -20,7 +20,7 @@ class AboutView extends GetView<AboutController> {
           snap: false,
           shape: appBarShape(),
           flexibleSpace: appBarBackground(),
-          bottom: appBarBottom(),
+          bottom: appBarBottom(context),
           expandedHeight: getDeviceHeight(context) * 0.32);
 
       Widget body = SliverGrid(
@@ -137,9 +137,10 @@ class AboutView extends GetView<AboutController> {
     );
   }
 
-  PreferredSize appBarBottom() {
+  PreferredSize appBarBottom(context) {
+    double height  = getDeviceHeight(context) * 0.28;
     return PreferredSize(
-      preferredSize: const Size.fromHeight(220.0),
+      preferredSize: Size.fromHeight(height),
       child: Transform.translate(
           offset: const Offset(0, 24),
           child: Padding(

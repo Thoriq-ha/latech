@@ -1,4 +1,3 @@
-// import 'dart:html';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -22,7 +21,7 @@ class HomeView extends GetView<HomeController> {
           snap: false,
           shape: appBarShape(),
           flexibleSpace: appBarBackground(),
-          bottom: appBarBottom(),
+          bottom: appBarBottom(context),
           expandedHeight: getDeviceHeight(context) * 0.26);
 
       Widget textSliver = SliverToBoxAdapter(
@@ -171,9 +170,10 @@ class HomeView extends GetView<HomeController> {
     );
   }
 
-  PreferredSize appBarBottom() {
+  PreferredSize appBarBottom(context) {
+    double height  = getDeviceHeight(context) * 0.02;
     return PreferredSize(
-      preferredSize: const Size.fromHeight(32.0),
+    preferredSize: Size.fromHeight(height),
       child: Transform.translate(
           offset: const Offset(0, 24),
           child: Padding(
