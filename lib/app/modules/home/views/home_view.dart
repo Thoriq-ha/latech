@@ -16,43 +16,40 @@ class HomeView extends GetView<HomeController> {
   HomeView({Key? key}) : super(key: key);
 
   List<TabItem> tabItem = [
-    TabItem(icon: Icon(Icons.apps, color: primary,)),
-    TabItem(icon: Icon(Icons.camera, color: primary,)),
-    TabItem(icon: Icon(Icons.settings, color: primary,))
+    TabItem(
+        icon: Icon(
+      Icons.apps,
+      color: primary,
+    )),
+    TabItem(
+        icon: Icon(
+      Icons.camera,
+      color: primary,
+    )),
+    TabItem(
+        icon: Icon(
+      Icons.settings,
+      color: primary,
+    ))
   ];
 
   @override
   Widget build(BuildContext context) {
     PanelController panelController = PanelController();
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('HomeView'),
-        centerTitle: true,
-      ),
-      // body: SlidingUpPanel(
-      //   maxHeight: getDeviceHeight(context) * 0.8,
-      //   minHeight: 0,
-      //   controller: panelController,
-      //   panel: Center(
-      //     child: Text("wakwaw"),
-      //   ),
-      //   body: CameraScreen(panelController: panelController,))
-      body: Obx(() {
-        return controller.viewBody[controller.currentIndex.value];
-      }),
-      bottomNavigationBar: Obx((){
-        return ConvexAppBar(
+    return Scaffold(body: Obx(() {
+      return controller.viewBody[controller.currentIndex.value];
+    }), bottomNavigationBar: Obx(() {
+      return ConvexAppBar(
           style: TabStyle.fixedCircle,
           initialActiveIndex: controller.currentIndex.value,
           backgroundColor: Colors.white,
           onTap: (index) {
             controller.currentIndex.value = index;
-            if (controller.currentIndex.value == cameraNavBarIndex) {
-              Get.toNamed(Routes.OCR);
-            }
+            // if (controller.currentIndex.value == cameraNavBarIndex) {
+            //   Get.toNamed(Routes.OCR);
+            // }
           },
           items: tabItem);
-      })
-    );
+    }));
   }
 }

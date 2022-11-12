@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_tesseract_ocr/android_ios.dart';
 import 'package:get/get.dart';
 import 'package:halalin/app/data/models/ingredient.dart';
-import 'package:halalin/app/modules/home/views/tabs/ocr_screen.dart';
+import 'package:halalin/app/modules/home/views/tabs/ocr/views/text_detector_view.dart';
 import 'package:halalin/app/services/halal_services.dart';
 import 'package:image_picker/image_picker.dart';
 
@@ -11,17 +11,11 @@ class HomeController extends GetxController {
   RxList<Ingredient> result = RxList();
   RxInt currentIndex = 0.obs;
   List<Widget> viewBody = [
-    const OcrScreen(),
-    Container(),
+    const Center(child: Text('Home')),
+    // const Center(child: Text('Camera')),
+    TextRecognizerView(),
     const Center(child: Text('Setting')),
   ];
-
-  final count = 0.obs;
-
-  @override
-  void onInit() {
-    super.onInit();
-  }
 
   RxString ocrText = ''.obs;
   String lang = "eng";
@@ -30,45 +24,31 @@ class HomeController extends GetxController {
 
   Future<void> getData() async {
     data.clear();
-    var res = await HalalServices.getDataService();
-    data.addAll(res);
   }
 
-  Future<void> getResult({required String input}) async {
+  Future<List<Ingredient>> getResult({required String input}) async {
     await getData();
-
     result.clear();
-    var res = await HalalServices.getHalal(input: input, ingrident: data.value);
+    var res = await HalalServices.getHalal(input: input);
     result.addAll(res);
+    return res;
   }
 
-  void ocr(url) async {
+  Future<List<Ingredient>> ocr(url) async {
     path.value = url;
-    // if (kIsWeb == false &&
-    //     (url.indexOf("http://") == 0 || url.indexOf("https://") == 0)) {
-    //   Directory tempDir = await getTemporaryDirectory();
-    //   HttpClient httpClient = HttpClient();
-    //   HttpClientRequest request = await httpClient.getUrl(Uri.parse(url));
-    //   HttpClientResponse response = await request.close();
-    //   Uint8List bytes = await consolidateHttpClientResponseBytes(response);
-    //   String dir = tempDir.path;
-    //   File file = File('$dir/test.jpg');
-    //   await file.writeAsBytes(bytes);
-    //   url = file.path;
-    // }
     bload.value = true;
 
     ocrText.value =
         await FlutterTesseractOcr.extractText(url, language: lang, args: {
       "preserve_interword_spaces": "1",
     });
-    await getResult(input: ocrText.value);
+    print(ocrText.value);
+    List<Ingredient> res = await getResult(input: ocrText.value);
+    print(res);
     bload.value = false;
+    return res;
   }
 
-  void increment() => count.value++;
-
-  // List setCameras() =>
   void runFilePiker() async {
     final pickedFile =
         await ImagePicker().pickImage(source: ImageSource.gallery);
@@ -76,10 +56,4 @@ class HomeController extends GetxController {
       ocr(pickedFile.path);
     }
   }
-
-  // Future<void> writeToFile(ByteData data, String path) {
-  //   final buffer = data.buffer;
-  //   return File(path).writeAsBytes(
-  //       buffer.asUint8List(data.offsetInBytes, data.lengthInBytes));
-  // }
 }
