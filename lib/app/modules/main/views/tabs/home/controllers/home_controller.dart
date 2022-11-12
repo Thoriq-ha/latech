@@ -1,23 +1,18 @@
 import 'package:get/get.dart';
+import 'package:halalin/app/data/models/product.dart';
+import 'package:halalin/app/services/product_services.dart';
 
 class HomeController extends GetxController {
-  //TODO: Implement HomeController
-
-  final count = 0.obs;
+  RxList<Product> products = RxList();
   @override
   void onInit() {
+    getProduct();
     super.onInit();
   }
 
-  @override
-  void onReady() {
-    super.onReady();
+  Future<void> getProduct() async {
+    products.clear();
+    var res = await ProductServices.getDataProduct();
+    products.addAll(res);
   }
-
-  @override
-  void onClose() {
-    super.onClose();
-  }
-
-  void increment() => count.value++;
 }

@@ -21,47 +21,55 @@ class ResultView extends GetView<ResultController> {
 
     inputImage = InputImage.fromFilePath(inputFile.path);
 
-    return Scaffold(
-      appBar: AppBar(
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
-          onPressed: () {
-            Get.offAllNamed(Routes.HOME);
+    return WillPopScope(
+      onWillPop: () async {
+        Get.offAllNamed(Routes.MAIN);
+        return false;
+      },
+      child: Scaffold(
+        appBar: AppBar(
+          leading: IconButton(
+            icon: const Icon(Icons.arrow_back),
+            onPressed: () {
+              Get.offAllNamed(Routes.MAIN);
+            },
+          ),
+        ),
+        body: FutureBuilder<RecognizedText>(
+          future: textRecognizer.processImage(inputImage),
+          builder: (ctx, snapshot) {
+            if (snapshot.connectionState != ConnectionState.waiting) {
+              return ListView(
+                children: [
+                  SizedBox(height: 400, child: Image.file(inputFile)),
+                  Text('Recognized Image :\n\n ${snapshot.data!.text}',
+                      textAlign: TextAlign.justify, maxLines: 5),
+                  FutureBuilder<List<Ingredient>>(
+                    future: HalalServices.getHalal(input: snapshot.data!.text),
+                    builder: (context, snapshot) {
+                      return SizedBox(
+                        height: 200,
+                        child: ListView.builder(
+                          itemCount: snapshot.data!.length,
+                          itemBuilder: (context, index) {
+                            var data = snapshot.data![index];
+                            return ListTile(
+                              leading: Text(data.kode),
+                              title: Text(data.status),
+                              trailing: Text(data.name),
+                            );
+                          },
+                        ),
+                      );
+                    },
+                  ),
+                ],
+              );
+            } else {
+              return const Center(child: CircularProgressIndicator());
+            }
           },
         ),
-      ),
-      body: FutureBuilder<RecognizedText>(
-        future: textRecognizer.processImage(inputImage),
-        builder: (ctx, snapshot) {
-          if (snapshot.connectionState != ConnectionState.waiting) {
-            return ListView(
-              children: [
-                SizedBox(height: 400, child: Image.file(inputFile)),
-                FutureBuilder<List<Ingredient>>(
-                  future: HalalServices.getHalal(input: snapshot.data!.text),
-                  builder: (context, snapshot) {
-                    return SizedBox(
-                      height: 200,
-                      child: ListView.builder(
-                        itemCount: snapshot.data!.length,
-                        itemBuilder: (context, index) {
-                          var data = snapshot.data![index];
-                          return ListTile(
-                            leading: Text(data.kode),
-                            title: Text(data.status),
-                            trailing: Text(data.name),
-                          );
-                        },
-                      ),
-                    );
-                  },
-                ),
-              ],
-            );
-          } else {
-            return const Center(child: CircularProgressIndicator());
-          }
-        },
       ),
     );
   }
