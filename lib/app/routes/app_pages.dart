@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:halalin/app/modules/main/views/tabs/ocr/views/text_recognizer_view.dart';
 
 import '../modules/main/bindings/main_binding.dart';
 import '../modules/main/views/main_view.dart';
@@ -42,7 +43,7 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.OCR,
-      page: () => const OcrView(),
+      page: () => TextRecognizerView(),
       binding: OcrBinding(),
     ),
     GetPage(
