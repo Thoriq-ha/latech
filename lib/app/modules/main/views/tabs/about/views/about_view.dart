@@ -125,7 +125,9 @@ class AboutView extends GetView<AboutController> {
                   padding: const EdgeInsets.symmetric(vertical: 16.0),
                   child: Text(
                       "Latech Apps is a multiplatform application \nthat can help us in ensuring the halalness \nof food products based on ingredients",
-                    style: textCustom(FontWeight.w500, 13, primaryAccent),),
+                    style: textCustom(FontWeight.w500, 13, primaryAccent),
+                    textAlign: TextAlign.center,
+                  ),
                 ),
               ],
             )),
