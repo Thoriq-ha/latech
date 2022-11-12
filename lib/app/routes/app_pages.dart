@@ -1,6 +1,8 @@
 import 'package:get/get.dart';
-import 'package:halalin/app/modules/main/views/tabs/ocr/views/text_recognizer_view.dart';
+import 'package:halalin/app/modules/main/views/tabs/ocr/views/ocr_view.dart';
 
+import '../modules/detail_result/bindings/detail_result_binding.dart';
+import '../modules/detail_result/views/detail_result_view.dart';
 import '../modules/main/bindings/main_binding.dart';
 import '../modules/main/views/main_view.dart';
 import '../modules/main/views/tabs/about/bindings/about_binding.dart';
@@ -8,7 +10,7 @@ import '../modules/main/views/tabs/about/views/about_view.dart';
 import '../modules/main/views/tabs/home/bindings/home_binding.dart';
 import '../modules/main/views/tabs/home/views/home_view.dart';
 import '../modules/main/views/tabs/ocr/bindings/ocr_binding.dart';
-import '../modules/main/views/tabs/ocr/views/ocr_view.dart';
+import '../modules/main/views/tabs/ocr/views/text_recognizer_view.dart';
 import '../modules/result/bindings/result_binding.dart';
 import '../modules/result/views/result_view.dart';
 import '../modules/splashscreen/bindings/splashscreen_binding.dart';
@@ -43,13 +45,18 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.OCR,
-      page: () => TextRecognizerView(),
+      page: () => OcrView(),
       binding: OcrBinding(),
     ),
     GetPage(
       name: _Paths.ABOUT,
       page: () => AboutView(),
       binding: AboutBinding(),
+    ),
+    GetPage(
+      name: _Paths.DETAIL_RESULT,
+      page: () => const DetailResultView(),
+      binding: DetailResultBinding(),
     ),
   ];
 }

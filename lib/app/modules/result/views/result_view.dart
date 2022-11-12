@@ -9,6 +9,7 @@ import 'package:halalin/app/constant/values.dart';
 import 'package:halalin/app/data/models/ingredient.dart';
 import 'package:halalin/app/routes/app_pages.dart';
 import 'package:halalin/app/services/halal_services.dart';
+import 'package:halalin/app/ui/status.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 
 import '../controllers/result_controller.dart';
@@ -30,17 +31,6 @@ class ResultView extends GetView<ResultController> {
         return false;
       },
       child: Scaffold(
-        appBar: AppBar(
-          title: const Text('Description'),
-          backgroundColor: Colors.white,
-          foregroundColor: Colors.black,
-          leading: IconButton(
-            icon: const Icon(Icons.arrow_back),
-            onPressed: () {
-              Get.offAllNamed(Routes.MAIN);
-            },
-          ),
-        ),
         body: FutureBuilder<RecognizedText>(
           future: textRecognizer.processImage(inputImage),
           builder: (ctx, snapshot) {
@@ -73,6 +63,7 @@ class ResultView extends GetView<ResultController> {
       minHeight: 60,
       isDraggable: true,
       header: Container(
+        height: 60,
         color: Colors.white,
         width: MediaQuery.of(context).size.width,
         child: IconButton(
@@ -185,42 +176,5 @@ class ResultView extends GetView<ResultController> {
         ],
       ),
     );
-  }
-
-  List<Widget> label({required Ingredient ingred}) {
-    List<Widget> label = [];
-    var statuses = ingred.status.map((v) {
-      var color;
-      if (v.toLowerCase() == 'halal') {
-        color = Colors.green;
-      } else if (v.toLowerCase() == 'mushbooh') {
-        color = Colors.amber;
-      } else {
-        color = Colors.redAccent;
-      }
-      return Padding(
-          padding: const EdgeInsets.only(right: 8),
-          child: Container(
-            color: color,
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Text(v),
-            ),
-          ));
-    }).toList();
-    label.addAll(statuses);
-    Widget expand = Expanded(
-      child: Container(),
-    );
-    Widget more = TextButton(
-        onPressed: () {},
-        child: Text(
-          'More ..',
-          style: TextStyle(color: primary, fontSize: 12),
-        ));
-    label.add(expand);
-    label.add(more);
-
-    return label;
   }
 }
