@@ -15,6 +15,7 @@ const String resultCard = 'assets/images/result_card.png';
 
 //text
 const String searchHintText = "Search halal foods";
+const String textImageError = "Whops! Unable to load image";
 
 double getDeviceHeight(BuildContext context) {
   return MediaQuery.of(context).size.height;

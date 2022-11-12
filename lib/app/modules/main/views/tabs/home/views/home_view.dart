@@ -71,14 +71,37 @@ class HomeView extends GetView<HomeController> {
                       borderRadius: BorderRadius.all(Radius.circular(24))),
                   child: Stack(
                     children: [
+
                       Align(
                         alignment: Alignment.topCenter,
                         child: Container(
                           padding: const EdgeInsets.all(8),
-                          child: Image.network(products[index].gambar, scale: 2
-                            ,),
+                          height: 500,
+                          child: Image.network(products[index].gambar,
+                            errorBuilder: (context, error, stackTrace) => Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Icon(Icons.warning),
+                                Text(textImageError, textAlign: TextAlign.center,),
+                              ]
+                            ),),
                         ),
-                      )
+                      ),
+                      Align(
+                        alignment: Alignment.center,
+                        child: Container(
+                          decoration: BoxDecoration(
+                              gradient: LinearGradient(
+                                begin: Alignment(0, 0),
+                                end: Alignment(0, 2),
+                                colors: [
+                                  Color(0xFFFFFF),
+                                  Colors.black,
+                                ],
+                              )
+                          ),
+                        ),
+                      ),
                     ],
                   )
                 ),
