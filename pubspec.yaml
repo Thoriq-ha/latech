@@ -50,7 +50,13 @@ flutter:
     - assets/images/ornamentBot.png
     - assets/images/ornamentAppbarLeft.png
     - assets/images/ornamentAppbarRight.png
+    - assets/images/ornamentAboutLeft.png
+    - assets/images/ornamentAboutRight.png
     - assets/images/headline.png
+    - assets/images/pp/dickyPP.png
+    - assets/images/pp/krisnaPP.png
+    - assets/images/pp/sadadPP.png
+    - assets/images/pp/thoriqPP.png
     - assets/
     - assets/dataset/
     - assets/tessdata/

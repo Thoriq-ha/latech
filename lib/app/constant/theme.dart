@@ -2,8 +2,9 @@ import 'package:flutter/cupertino.dart';
 
 //color
 Color primary = const Color(0xFF00A987);
+Color primaryVariant = const Color(0xFFB0E4DA);
 Color primaryAccent = const Color(0xFFFCFCFC);
-Color primaryAccentVariant = const Color(0xFFF6F6F6);
+Color primaryAccentVariant = const Color(0xFFF8F8F8);
 Color inactive = const Color(0xFF687590);
 
 //font and text style

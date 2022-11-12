@@ -17,7 +17,7 @@ class MainController extends GetxController {
     const HomeView(),
     // const Center(child: Text('Camera')),
     TextRecognizerView(),
-    const AboutView(),
+    AboutView(),
   ];
 
   RxString ocrText = ''.obs;

@@ -11,7 +11,13 @@ const String ornamentBottom = 'assets/images/ornamentBot.png';
 const String headline = 'assets/images/headline.png';
 const String ornamentAppbarLeft = 'assets/images/ornamentAppbarLeft.png';
 const String ornamentAppbarRight = 'assets/images/ornamentAppbarRight.png';
+const String ornamentAboutLeft = 'assets/images/ornamentAboutLeft.png';
+const String ornamentAboutRight = 'assets/images/ornamentAboutRight.png';
 const String resultCard = 'assets/images/result_card.png';
+const String dickyPhotoProfile = 'assets/images/pp/dickyPP.png';
+const String krisnaPhotoProfile = 'assets/images/pp/krisnaPP.png';
+const String sadadPhotoProfile = 'assets/images/pp/sadadPP.png';
+const String thoriqPhotoProfile = 'assets/images/pp/thoriqPP.png';
 
 //text
 const String searchHintText = "Search halal foods";
