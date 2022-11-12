@@ -9,6 +9,7 @@ const String logo = 'assets/images/logo.png';
 const String ornamentTop = 'assets/images/ornamentTop.png';
 const String ornamentBottom = 'assets/images/ornamentBot.png';
 const String headline = 'assets/images/headline.png';
+const String foodIcon = 'assets/images/food.png';
 const String ornamentAppbarLeft = 'assets/images/ornamentAppbarLeft.png';
 const String ornamentAppbarRight = 'assets/images/ornamentAppbarRight.png';
 const String ornamentAboutLeft = 'assets/images/ornamentAboutLeft.png';

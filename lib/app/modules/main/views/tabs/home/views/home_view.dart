@@ -98,21 +98,9 @@ class HomeView extends GetView<HomeController> {
                             child: Image.network(
                               products[index].gambar,
                               errorBuilder: (context, error, stackTrace) =>
-                                  Column(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                    const Icon(
-                                      Icons.warning_outlined,
-                                      color: Color(0x8F656565),
-                                      size: 64,
-                                    ),
-                                    Text(
-                                      textImageError,
-                                      textAlign: TextAlign.center,
-                                      style: textRegularDefault,
-                                    ),
-                                  ]),
+                                  Center(
+                                    child: Image.asset(foodIcon, fit: BoxFit.fitWidth,),
+                                  )
                             ),
                           ),
                         ),
