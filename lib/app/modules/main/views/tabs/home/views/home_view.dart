@@ -1,7 +1,4 @@
 // import 'dart:html';
-
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -71,7 +68,6 @@ class HomeView extends GetView<HomeController> {
                       borderRadius: BorderRadius.all(Radius.circular(24))),
                   child: Stack(
                     children: [
-
                       Align(
                         alignment: Alignment.topCenter,
                         child: Container(
@@ -81,7 +77,7 @@ class HomeView extends GetView<HomeController> {
                             errorBuilder: (context, error, stackTrace) => Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                Icon(Icons.warning_outlined, color: Color(0x8F656565), size: 64,),
+                                const Icon(Icons.warning_outlined, color: Color(0x8F656565), size: 64,),
                                 Text(textImageError, textAlign: TextAlign.center, style: textRegularDefault,),
                               ]
                             ),),
@@ -90,12 +86,12 @@ class HomeView extends GetView<HomeController> {
                       Align(
                         alignment: Alignment.center,
                         child: Container(
-                          decoration: BoxDecoration(
+                          decoration: const BoxDecoration(
                               gradient: LinearGradient(
                                 begin: Alignment(0, 0),
                                 end: Alignment(0, 2),
                                 colors: [
-                                  Color(0xFFFFFF),
+                                  Color(0x00ffffff),
                                   Colors.black,
                                 ],
                               )
@@ -127,7 +123,7 @@ class HomeView extends GetView<HomeController> {
   }
 
   ShapeBorder appBarShape() {
-    return ContinuousRectangleBorder(
+    return const ContinuousRectangleBorder(
         borderRadius: BorderRadius.only(
             bottomLeft: Radius.circular(24), bottomRight: Radius.circular(24)));
   }
@@ -168,7 +164,7 @@ class HomeView extends GetView<HomeController> {
               maxLines: 1,
               maxLength: 40,
               decoration: InputDecoration(
-                prefixIcon: Icon(Icons.search),
+                prefixIcon:const Icon(Icons.search),
                 filled: true,
                 fillColor: primaryAccent,
                 border: OutlineInputBorder(
