@@ -81,8 +81,8 @@ class HomeView extends GetView<HomeController> {
                             errorBuilder: (context, error, stackTrace) => Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                Icon(Icons.warning),
-                                Text(textImageError, textAlign: TextAlign.center,),
+                                Icon(Icons.warning_outlined, color: Color(0x8F656565), size: 64,),
+                                Text(textImageError, textAlign: TextAlign.center, style: textRegularDefault,),
                               ]
                             ),),
                         ),
