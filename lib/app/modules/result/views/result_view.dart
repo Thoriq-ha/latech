@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:google_mlkit_text_recognition/google_mlkit_text_recognition.dart';
+import 'package:halalin/app/constant/theme.dart';
 import 'package:halalin/app/constant/values.dart';
 import 'package:halalin/app/data/models/ingredient.dart';
 import 'package:halalin/app/routes/app_pages.dart';
@@ -160,7 +161,20 @@ class ResultView extends GetView<ResultController> {
                                               fontSize: 20,
                                               fontWeight: FontWeight.w600),
                                         ),
-                                        const Text('Halal'),
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Text(dataResult.status.toString()),
+                                            TextButton(
+                                                onPressed: () {},
+                                                child: Text(
+                                                  'More ..',
+                                                  style:
+                                                      TextStyle(color: primary),
+                                                ))
+                                          ],
+                                        ),
                                       ],
                                     ),
                                   ),
