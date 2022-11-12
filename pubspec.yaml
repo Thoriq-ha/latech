@@ -15,7 +15,8 @@ dependencies:
   get: 4.6.5
   google_mlkit_commons: ^0.2.0
   google_mlkit_text_recognition:
-    path: ../google_mlkit_text_recognition
+    git:
+      url: https://github.com/Thoriq-ha/google_ml.git
   image_picker: ^0.8.6
   path_provider: ^2.0.11
   sliding_up_panel: ^2.0.0+1
