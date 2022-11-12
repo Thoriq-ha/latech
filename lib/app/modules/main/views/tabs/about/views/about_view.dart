@@ -137,7 +137,7 @@ class AboutView extends GetView<AboutController> {
 
   PreferredSize appBarBottom() {
     return PreferredSize(
-      preferredSize: const Size.fromHeight(200.0),
+      preferredSize: const Size.fromHeight(220.0),
       child: Transform.translate(
           offset: const Offset(0, 24),
           child: Padding(
