@@ -1,23 +1,6 @@
 import 'package:get/get.dart';
+import 'package:sliding_up_panel/sliding_up_panel.dart';
 
 class ResultController extends GetxController {
-  //TODO: Implement ResultController
-
-  final count = 0.obs;
-  @override
-  void onInit() {
-    super.onInit();
-  }
-
-  @override
-  void onReady() {
-    super.onReady();
-  }
-
-  @override
-  void onClose() {
-    super.onClose();
-  }
-
-  void increment() => count.value++;
+  PanelController slidingController = PanelController();
 }

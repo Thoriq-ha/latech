@@ -4,9 +4,11 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:google_mlkit_text_recognition/google_mlkit_text_recognition.dart';
+import 'package:halalin/app/constant/values.dart';
 import 'package:halalin/app/data/models/ingredient.dart';
 import 'package:halalin/app/routes/app_pages.dart';
 import 'package:halalin/app/services/halal_services.dart';
+import 'package:sliding_up_panel/sliding_up_panel.dart';
 
 import '../controllers/result_controller.dart';
 
@@ -28,6 +30,9 @@ class ResultView extends GetView<ResultController> {
       },
       child: Scaffold(
         appBar: AppBar(
+          title: const Text('Description'),
+          backgroundColor: Colors.white,
+          foregroundColor: Colors.black,
           leading: IconButton(
             icon: const Icon(Icons.arrow_back),
             onPressed: () {
@@ -39,30 +44,16 @@ class ResultView extends GetView<ResultController> {
           future: textRecognizer.processImage(inputImage),
           builder: (ctx, snapshot) {
             if (snapshot.connectionState != ConnectionState.waiting) {
-              return ListView(
+              return Stack(
                 children: [
-                  SizedBox(height: 400, child: Image.file(inputFile)),
-                  Text('Recognized Image :\n\n ${snapshot.data!.text}',
-                      textAlign: TextAlign.justify, maxLines: 5),
-                  FutureBuilder<List<Ingredient>>(
-                    future: HalalServices.getHalal(input: snapshot.data!.text),
-                    builder: (context, snapshot) {
-                      return SizedBox(
-                        height: 200,
-                        child: ListView.builder(
-                          itemCount: snapshot.data!.length,
-                          itemBuilder: (context, index) {
-                            var data = snapshot.data![index];
-                            return ListTile(
-                              leading: Text(data.kode),
-                              title: Text(data.status),
-                              trailing: Text(data.name),
-                            );
-                          },
-                        ),
-                      );
-                    },
-                  ),
+                  SizedBox(
+                      height: double.infinity,
+                      width: double.infinity,
+                      child: Image.file(
+                        inputFile,
+                        fit: BoxFit.cover,
+                      )),
+                  bottomResult(context, snapshot),
                 ],
               );
             } else {
@@ -70,6 +61,123 @@ class ResultView extends GetView<ResultController> {
             }
           },
         ),
+      ),
+    );
+  }
+
+  SlidingUpPanel bottomResult(
+      BuildContext context, AsyncSnapshot<RecognizedText> snapshot) {
+    return SlidingUpPanel(
+      controller: controller.slidingController,
+      minHeight: 60,
+      isDraggable: true,
+      header: Container(
+        color: Colors.white,
+        width: MediaQuery.of(context).size.width,
+        child: IconButton(
+            onPressed: () {
+              if (controller.slidingController.panelPosition == 1) {
+                controller.slidingController.animatePanelToPosition(0);
+              } else {
+                controller.slidingController.animatePanelToPosition(1);
+              }
+            },
+            icon: const Icon(Icons.linear_scale)),
+      ),
+      panel: ListView(
+        children: [
+          Container(height: 60),
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 16, vertical: 6),
+            child: Text(
+              'E-CODE Inggredients',
+              textAlign: TextAlign.justify,
+              style: TextStyle(fontSize: 24, fontWeight: FontWeight.w600),
+            ),
+          ),
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 16),
+            child: Text('Recognized Image :'),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(
+              horizontal: 16,
+            ),
+            child: Text(snapshot.data!.text,
+                textAlign: TextAlign.justify, maxLines: 5),
+          ),
+          const SizedBox(height: 16),
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 16),
+            child: Text('Result : ', textAlign: TextAlign.justify),
+          ),
+          if (snapshot.data != null)
+            FutureBuilder<List<Ingredient>>(
+              future: HalalServices.getHalal(input: snapshot.data!.text),
+              builder: (context, snapshot) {
+                if (snapshot.connectionState == ConnectionState.waiting) {
+                  return const CircularProgressIndicator();
+                } else {
+                  if (snapshot.data == null) {
+                    return const Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 16),
+                      child: Text('Result Is Empty ',
+                          textAlign: TextAlign.justify),
+                    );
+                  }
+                  return Padding(
+                    padding: const EdgeInsets.symmetric(
+                        vertical: 12, horizontal: 16),
+                    child: Container(
+                      color: Colors.white,
+                      height: (200.0 * snapshot.data!.length),
+                      child: ListView.builder(
+                        physics: const NeverScrollableScrollPhysics(),
+                        itemCount: snapshot.data!.length,
+                        itemBuilder: (context, index) {
+                          var dataResult = snapshot.data![index];
+                          return Padding(
+                            padding: const EdgeInsets.symmetric(vertical: 16),
+                            child: Stack(
+                              children: [
+                                Image.asset(resultCard),
+                                Padding(
+                                  padding: const EdgeInsets.all(26.0),
+                                  child: SizedBox(
+                                    height: 100,
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Text(dataResult.name,
+                                            style:
+                                                const TextStyle(fontSize: 14)),
+                                        Text(
+                                          dataResult.kode,
+                                          style: const TextStyle(
+                                              fontSize: 20,
+                                              fontWeight: FontWeight.w600),
+                                        ),
+                                        const Text('Halal'),
+                                      ],
+                                    ),
+                                  ),
+                                )
+                              ],
+                            ),
+                          );
+                        },
+                      ),
+                    ),
+                  );
+                }
+              },
+            )
+          else
+            const Text('Result is Empty')
+        ],
       ),
     );
   }

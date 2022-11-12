@@ -4,6 +4,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_mlkit_commons/google_mlkit_commons.dart';
+import 'package:halalin/app/constant/theme.dart';
 import 'package:halalin/app/routes/app_pages.dart';
 import 'package:image_picker/image_picker.dart';
 
@@ -14,7 +15,6 @@ enum ScreenMode { liveFeed, gallery }
 class CameraView extends StatefulWidget {
   CameraView(
       {Key? key,
-      required this.title,
       required this.customPaint,
       this.text,
       required this.textWidget,
@@ -23,7 +23,6 @@ class CameraView extends StatefulWidget {
       this.initialDirection = CameraLensDirection.back})
       : super(key: key);
 
-  final String title;
   final CustomPaint? customPaint;
   File? imageTaken;
   final String? text;
@@ -88,28 +87,27 @@ class _CameraViewState extends State<CameraView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-        actions: [
-          if (_allowPicker)
-            Padding(
-              padding: const EdgeInsets.only(right: 20.0),
-              child: GestureDetector(
-                onTap: _switchScreenMode,
-                child: Icon(
-                  _mode == ScreenMode.liveFeed
-                      ? Icons.photo_library_outlined
-                      : (Platform.isIOS
-                          ? Icons.camera_alt_outlined
-                          : Icons.camera),
-                ),
-              ),
-            ),
-        ],
-      ),
+      // appBar: AppBar(
+      //   actions: [
+      //     if (_allowPicker)
+      //       Padding(
+      //         padding: const EdgeInsets.only(right: 20.0),
+      //         child: GestureDetector(
+      //           onTap: _switchScreenMode,
+      //           child: Icon(
+      //             _mode == ScreenMode.liveFeed
+      //                 ? Icons.photo_library_outlined
+      //                 : (Platform.isIOS
+      //                     ? Icons.camera_alt_outlined
+      //                     : Icons.camera),
+      //           ),
+      //         ),
+      //       ),
+      //   ],
+      // ),
       body: _body(),
-      floatingActionButton: _floatingActionButton(),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      // floatingActionButton: _floatingActionButton(),
+      // floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
 
@@ -120,11 +118,10 @@ class _CameraViewState extends State<CameraView> {
         height: 70.0,
         width: 70.0,
         child: FloatingActionButton(
-          onPressed: _switchLiveCamera,
-          child: Icon(
-            Platform.isIOS
-                ? Icons.flip_camera_ios_outlined
-                : Icons.flip_camera_android_outlined,
+          backgroundColor: primary,
+          onPressed: _takePicture,
+          child: const Icon(
+            Icons.camera_enhance,
             size: 40,
           ),
         ));
@@ -170,32 +167,39 @@ class _CameraViewState extends State<CameraView> {
                   : CameraPreview(_controller!),
             ),
           ),
-          widget.textWidget ?? Container(),
-          if (widget.imageTaken != null)
-            SizedBox(
-                width: double.infinity,
-                height: double.infinity,
-                child: Image.file(
-                  widget.imageTaken!,
-                  fit: BoxFit.cover,
-                )),
           if (widget.customPaint != null) widget.customPaint!,
+
+          // widget.textWidget ?? Container(),
+          // if (widget.imageTaken != null)
+          //   SizedBox(
+          //       width: double.infinity,
+          //       height: double.infinity,
+          //       child: Image.file(
+          //         widget.imageTaken!,
+          //         fit: BoxFit.cover,
+          //       )),
+          // Positioned(
+          //   bottom: 200,
+          //   left: 50,
+          //   right: 50,
+          //   child: ElevatedButton(
+          //     child: const Text('Take.'),
+          //     onPressed: () {
+          //       _takePicture();
+          //     },
+          //   ),
+          // ),
           Positioned(
-            bottom: 200,
-            left: 50,
-            right: 50,
-            child: ElevatedButton(
-              child: const Text('Take.'),
-              onPressed: () {
-                _takePicture();
-              },
-            ),
-          ),
+              bottom: 50,
+              left: 50,
+              right: 50,
+              child: _floatingActionButton() ?? Container()),
           Positioned(
-            bottom: 100,
+            bottom: 120,
             left: 50,
             right: 50,
             child: Slider(
+              thumbColor: Colors.greenAccent,
               value: zoomLevel,
               min: minZoomLevel,
               max: maxZoomLevel,

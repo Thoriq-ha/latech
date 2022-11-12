@@ -1,4 +1,3 @@
-
 import 'package:flutter/cupertino.dart';
 
 const int splashDuration = 3;
@@ -12,14 +11,15 @@ const String ornamentBottom = 'assets/images/ornamentBot.png';
 const String headline = 'assets/images/headline.png';
 const String ornamentAppbarLeft = 'assets/images/ornamentAppbarLeft.png';
 const String ornamentAppbarRight = 'assets/images/ornamentAppbarRight.png';
+const String resultCard = 'assets/images/result_card.png';
 
 //text
 const String searchHintText = "Search halal foods";
 
-double getDeviceHeight(BuildContext context){
+double getDeviceHeight(BuildContext context) {
   return MediaQuery.of(context).size.height;
 }
 
-double getDeviceWidth(BuildContext context){
+double getDeviceWidth(BuildContext context) {
   return MediaQuery.of(context).size.width;
 }
