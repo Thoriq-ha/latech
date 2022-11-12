@@ -27,16 +27,16 @@ class HomeView extends GetView<HomeController> {
 
       Widget textSliver = SliverToBoxAdapter(
         child: Padding(
-          padding: const EdgeInsets.only(
-            left: 16,
-            right: 16,
-            top: 34
-          ),
+          padding: const EdgeInsets.only(left: 16, right: 16, top: 34),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text("Halal Food", style: textCustom(semiBoldFont, 20, Colors.black)),
-              Text("Foods with no pork or alcohol", style: textMediumDefault,),
+              Text("Halal Food",
+                  style: textCustom(semiBoldFont, 20, Colors.black)),
+              Text(
+                "Foods with no pork or alcohol",
+                style: textMediumDefault,
+              ),
             ],
           ),
         ),
@@ -61,64 +61,77 @@ class HomeView extends GetView<HomeController> {
                 height: 500,
                 width: 500,
                 child: Card(
-                  semanticContainer: true,
-                  clipBehavior: Clip.antiAliasWithSaveLayer,
-                  elevation: 3.0,
-                  shape: const ContinuousRectangleBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(24))),
-                  child: Stack(
-                    children: [
-                      Align(
-                        alignment: Alignment.topRight,
-                        child: IconButton(
-                            onPressed: (){},
-                            icon: const Icon(Icons.bookmark_border, size: 24,)),
-                      ),
-                      Align(
-                        alignment: Alignment.bottomCenter,
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-                          child: Expanded(
-                              child: Text(
-                                products[index].nama,
-                                maxLines: 1,
-                                style: textMediumDefault,
+                    semanticContainer: true,
+                    clipBehavior: Clip.antiAliasWithSaveLayer,
+                    elevation: 3.0,
+                    shape: const ContinuousRectangleBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(24))),
+                    child: Stack(
+                      children: [
+                        Align(
+                          alignment: Alignment.topRight,
+                          child: IconButton(
+                              onPressed: () {},
+                              icon: const Icon(
+                                Icons.bookmark_border,
+                                size: 24,
                               )),
                         ),
-                      ),
-                      Align(
-                        alignment: Alignment.topCenter,
-                        child: Container(
-                          padding: const EdgeInsets.all(8),
-                          height: 500,
-                          child: Image.network(products[index].gambar,
-                            errorBuilder: (context, error, stackTrace) => Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                const Icon(Icons.warning_outlined, color: Color(0x8F656565), size: 64,),
-                                Text(textImageError, textAlign: TextAlign.center, style: textRegularDefault,),
-                              ]
-                            ),),
-                        ),
-                      ),
-                      Align(
-                        alignment: Alignment.center,
-                        child: Container(
-                          decoration: const BoxDecoration(
-                              gradient: LinearGradient(
-                                begin: Alignment(0, 0),
-                                end: Alignment(0, 2),
-                                colors: [
-                                  Color(0x00ffffff),
-                                  Colors.black,
-                                ],
-                              )
+                        Align(
+                          alignment: Alignment.bottomCenter,
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 16.0, vertical: 8.0),
+                            child: Expanded(
+                                child: Text(
+                              products[index].nama,
+                              maxLines: 1,
+                              style: textMediumDefault,
+                            )),
                           ),
                         ),
-                      ),
-                    ],
-                  )
-                ),
+                        Align(
+                          alignment: Alignment.topCenter,
+                          child: Container(
+                            padding: const EdgeInsets.all(8),
+                            height: 500,
+                            child: Image.network(
+                              products[index].gambar,
+                              errorBuilder: (context, error, stackTrace) =>
+                                  Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                    const Icon(
+                                      Icons.warning_outlined,
+                                      color: Color(0x8F656565),
+                                      size: 64,
+                                    ),
+                                    Text(
+                                      textImageError,
+                                      textAlign: TextAlign.center,
+                                      style: textRegularDefault,
+                                    ),
+                                  ]),
+                            ),
+                          ),
+                        ),
+                        Align(
+                          alignment: Alignment.center,
+                          child: Container(
+                            decoration: const BoxDecoration(
+                                gradient: LinearGradient(
+                              begin: Alignment(0, 0),
+                              end: Alignment(0, 2),
+                              colors: [
+                                Color(0x00ffffff),
+                                Colors.black,
+                              ],
+                            )),
+                          ),
+                        ),
+                      ],
+                    )),
               );
             },
             childCount: products.length,
@@ -178,11 +191,14 @@ class HomeView extends GetView<HomeController> {
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20.0),
             child: TextField(
+              onChanged: (value) {
+                controller.searchProduct(query: value);
+              },
               style: textRegularDefault,
               maxLines: 1,
               maxLength: 40,
               decoration: InputDecoration(
-                prefixIcon:const Icon(Icons.search),
+                prefixIcon: const Icon(Icons.search),
                 filled: true,
                 fillColor: primaryAccent,
                 border: OutlineInputBorder(
