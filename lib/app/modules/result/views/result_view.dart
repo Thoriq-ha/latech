@@ -90,14 +90,10 @@ class ResultView extends GetView<ResultController> {
           const Padding(
             padding: EdgeInsets.symmetric(horizontal: 16, vertical: 6),
             child: Text(
-              'E-CODE Inggredients',
+              'Recognized Image :',
               textAlign: TextAlign.justify,
               style: TextStyle(fontSize: 24, fontWeight: FontWeight.w600),
             ),
-          ),
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 16),
-            child: Text('Recognized Image :'),
           ),
           Padding(
             padding: const EdgeInsets.symmetric(
@@ -106,10 +102,14 @@ class ResultView extends GetView<ResultController> {
             child: Text(snapshot.data!.text,
                 textAlign: TextAlign.justify, maxLines: 5),
           ),
-          const SizedBox(height: 16),
+          const SizedBox(height: 24),
           const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 16),
-            child: Text('Result : ', textAlign: TextAlign.justify),
+            padding: EdgeInsets.symmetric(horizontal: 16, vertical: 6),
+            child: Text(
+              'E-CODE Inggredients :',
+              textAlign: TextAlign.justify,
+              style: TextStyle(fontSize: 24, fontWeight: FontWeight.w600),
+            ),
           ),
           if (snapshot.data != null)
             FutureBuilder<List<Ingredient>>(
