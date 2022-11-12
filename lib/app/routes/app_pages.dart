@@ -21,7 +21,7 @@ class AppPages {
         binding: SplashScreenBinding()),
     GetPage(
       name: _Paths.HOME,
-      page: () => const HomeView(),
+      page: () => HomeView(),
       binding: HomeBinding(),
     ),
     GetPage(

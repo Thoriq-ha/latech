@@ -14,12 +14,7 @@ class SplashScreenController extends GetxController{
 
   @override
   void onInit() {
-    // Future.delayed(
-    //   const Duration(milliseconds: 1000), (){
-    //     opacity.value = 1.0;
-    //     print(opacity.value);
-    //   }
-    // );
+    // 
     // TODO: implement onInit
     super.onInit();
   }

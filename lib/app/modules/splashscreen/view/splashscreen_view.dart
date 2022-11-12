@@ -19,7 +19,7 @@ class SplashScreenView extends GetView<SplashScreenController> {
           color: primary,
           child: Stack(
             children: [
-             logoAnimation(),
+            Obx((() =>  logoAnimation())),
              topOrnament(),
              bottomOrnament()
             ],
