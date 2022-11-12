@@ -1,4 +1,6 @@
 import 'package:get/get.dart';
+import 'package:halalin/app/modules/home/views/tabs/ocr/bindings/ocr_binding.dart';
+import 'package:halalin/app/modules/home/views/tabs/ocr/views/ocr_view.dart';
 
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
@@ -17,17 +19,22 @@ class AppPages {
   static final routes = [
     GetPage(
         name: _Paths.SPLASH,
-        page: () => const SplashScreenView(),
+        page: () => SplashScreenView(),
         binding: SplashScreenBinding()),
     GetPage(
       name: _Paths.HOME,
-      page: () => const HomeView(),
+      page: () => HomeView(),
       binding: HomeBinding(),
     ),
     GetPage(
       name: _Paths.RESULT,
       page: () => const ResultView(),
       binding: ResultBinding(),
+    ),
+    GetPage(
+      name: _Paths.OCR,
+      page: () => const OcrView(),
+      binding: OcrBinding(),
     ),
   ];
 }

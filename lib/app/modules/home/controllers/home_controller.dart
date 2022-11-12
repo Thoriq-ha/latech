@@ -11,7 +11,8 @@ class HomeController extends GetxController {
   RxList<Ingredient> result = RxList();
   RxInt currentIndex = 0.obs;
   List<Widget> viewBody = [
-    const Center(child: Text('Setting')),
+    const Center(child: Text('Home')),
+    // const Center(child: Text('Camera')),
     TextRecognizerView(),
     const Center(child: Text('Setting')),
   ];
