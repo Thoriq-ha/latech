@@ -162,19 +162,10 @@ class ResultView extends GetView<ResultController> {
                                               fontWeight: FontWeight.w600),
                                         ),
                                         Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          children: [
-                                            Text(dataResult.status.toString()),
-                                            TextButton(
-                                                onPressed: () {},
-                                                child: Text(
-                                                  'More ..',
-                                                  style:
-                                                      TextStyle(color: primary),
-                                                ))
-                                          ],
-                                        ),
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            children:
+                                                label(ingred: dataResult)),
                                       ],
                                     ),
                                   ),
@@ -194,5 +185,42 @@ class ResultView extends GetView<ResultController> {
         ],
       ),
     );
+  }
+
+  List<Widget> label({required Ingredient ingred}) {
+    List<Widget> label = [];
+    var statuses = ingred.status.map((v) {
+      var color;
+      if (v.toLowerCase() == 'halal') {
+        color = Colors.green;
+      } else if (v.toLowerCase() == 'mushbooh') {
+        color = Colors.amber;
+      } else {
+        color = Colors.redAccent;
+      }
+      return Padding(
+          padding: const EdgeInsets.only(right: 8),
+          child: Container(
+            color: color,
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(v),
+            ),
+          ));
+    }).toList();
+    label.addAll(statuses);
+    Widget expand = Expanded(
+      child: Container(),
+    );
+    Widget more = TextButton(
+        onPressed: () {},
+        child: Text(
+          'More ..',
+          style: TextStyle(color: primary, fontSize: 12),
+        ));
+    label.add(expand);
+    label.add(more);
+
+    return label;
   }
 }
