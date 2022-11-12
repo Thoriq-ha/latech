@@ -123,7 +123,7 @@ class _CameraViewState extends State<CameraView> {
           child: Padding(
             padding: const EdgeInsets.all(2.0),
             child: Container(
-              padding: EdgeInsets.all(4.0),
+              padding: EdgeInsets.all(2.0),
               decoration: BoxDecoration(
                 color: primary,
                 shape: BoxShape.circle,
