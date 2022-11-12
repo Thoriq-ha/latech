@@ -11,7 +11,7 @@ class MainView extends GetView<MainController> {
 
   @override
   Widget build(BuildContext context) {
-    PanelController panelController = PanelController();
+    // PanelController panelController = PanelController();
     return Scaffold(body: Obx(() {
       return controller.viewBody[controller.currentIndex.value];
     }), bottomNavigationBar: Obx(() {

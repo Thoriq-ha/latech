@@ -17,7 +17,6 @@ class HomeView extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
     Get.put(HomeController());
-
     List<Widget> sliverList(RxList<Product> products) {
       Widget apbbar = SliverAppBar(
           backgroundColor: primary,
@@ -53,13 +52,36 @@ class HomeView extends GetView<HomeController> {
             maxCrossAxisExtent: 200.0,
             mainAxisSpacing: 10.0,
             crossAxisSpacing: 10.0,
-            childAspectRatio: 4.0,
+            childAspectRatio: 0.8,
           ),
           delegate: SliverChildBuilderDelegate(
             (BuildContext context, int index) {
-              return Container(
-                color: primary,
-                child: Text(products[index].nama),
+              // return Container(
+              //   color: primary,
+              //   child: Text(products[index].nama),
+              // );
+              return SizedBox(
+                height: 500,
+                width: 500,
+                child: Card(
+                  semanticContainer: true,
+                  clipBehavior: Clip.antiAliasWithSaveLayer,
+                  elevation: 3.0,
+                  shape: const ContinuousRectangleBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(24))),
+                  child: Stack(
+                    children: [
+                      Align(
+                        alignment: Alignment.topCenter,
+                        child: Container(
+                          padding: const EdgeInsets.all(8),
+                          child: Image.network(products[index].gambar, scale: 2
+                            ,),
+                        ),
+                      )
+                    ],
+                  )
+                ),
               );
             },
             childCount: products.length,
@@ -75,7 +97,7 @@ class HomeView extends GetView<HomeController> {
     }
 
     return Scaffold(
-        backgroundColor: primaryAccent,
+        backgroundColor: primaryAccentVariant,
         body: Obx(() {
           return CustomScrollView(slivers: sliverList(controller.products));
         }));
@@ -113,7 +135,7 @@ class HomeView extends GetView<HomeController> {
 
   PreferredSize appBarBottom() {
     return PreferredSize(
-      preferredSize: const Size.fromHeight(3.0),
+      preferredSize: const Size.fromHeight(32.0),
       child: Transform.translate(
           offset: const Offset(0, 24),
           child: Padding(
