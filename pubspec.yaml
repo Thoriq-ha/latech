@@ -34,6 +34,9 @@ flutter:
     - assets/images/logo.png
     - assets/images/ornamentTop.png
     - assets/images/ornamentBot.png
+    - assets/images/ornamentAppbarLeft.png
+    - assets/images/ornamentAppbarRight.png
+    - assets/images/headline.png
     - assets/
     - assets/dataset/
     - assets/tessdata/

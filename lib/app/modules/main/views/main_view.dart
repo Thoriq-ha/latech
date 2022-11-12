@@ -9,24 +9,6 @@ import '../controllers/main_controller.dart';
 class MainView extends GetView<MainController> {
   MainView({Key? key}) : super(key: key);
 
-  List<TabItem> tabItem = [
-    TabItem(
-        icon: Icon(
-      Icons.apps,
-      color: Colors.grey,
-    )),
-    TabItem(
-        icon: Icon(
-      Icons.camera,
-      color: Colors.grey,
-    )),
-    TabItem(
-        icon: Icon(
-      Icons.settings,
-      color: Colors.grey,
-    ))
-  ];
-
   @override
   Widget build(BuildContext context) {
     PanelController panelController = PanelController();
@@ -34,51 +16,31 @@ class MainView extends GetView<MainController> {
       return controller.viewBody[controller.currentIndex.value];
     }), bottomNavigationBar: Obx(() {
       return ConvexAppBar(
-          // activeColor: Colors.black,
           style: TabStyle.fixedCircle,
           initialActiveIndex: controller.currentIndex.value,
-          backgroundColor: Colors.white,
+          color: primaryAccent,
+          backgroundColor: primaryAccent,
           onTap: (index) {
             controller.currentIndex.value = index;
-
-            // if (controller.currentIndex.value == cameraNavBarIndex) {
-            //   Get.toNamed(Routes.OCR);
-            // }
           },
           items: [
-            (controller.currentIndex.value == 0)
-                ? TabItem(
-                icon: Icon(
-                  Icons.apps,
-                  color: primary,
-                )): TabItem(
-              icon: Icon(
-              Icons.apps,
-              color: Colors.grey,
-            ),),
-            (controller.currentIndex.value == 1)
-                ? TabItem(
-                icon: Icon(
-                  Icons.camera,
-                  color: primary,
-                )): TabItem(
-              icon: Icon(
-                Icons.camera,
-                color: Colors.grey,
-              ),),
-            (controller.currentIndex.value == 2)
-                ? TabItem(
-                icon: Icon(
-                  Icons.settings,
-                  color: primary,
-                )): TabItem(
-              icon: Icon(
-                Icons.settings,
-                color: Colors.grey,
-              ),)
-
-
-          ]);
+            tabItem(Icons.apps, 0, controller.currentIndex.value),
+            tabItem(Icons.camera, 1, controller.currentIndex.value),
+            tabItem(Icons.settings, 2, controller.currentIndex.value),
+            ]);
     }));
+  }
+
+  TabItem tabItem(IconData icon, currentIndex,index){
+    return  (index == currentIndex)
+        ? TabItem(
+        icon: Icon(
+          icon,
+          color: primary,
+        )): TabItem(
+      icon: Icon(
+        icon,
+        color: Colors.grey,
+      ),);
   }
 }
