@@ -1,9 +1,9 @@
 import 'package:get/get.dart';
-import 'package:halalin/app/modules/home/views/tabs/ocr/bindings/ocr_binding.dart';
-import 'package:halalin/app/modules/home/views/tabs/ocr/views/ocr_view.dart';
 
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
+import '../modules/result/bindings/result_binding.dart';
+import '../modules/result/views/result_view.dart';
 import '../modules/splashscreen/bindings/splashscreen_binding.dart';
 import '../modules/splashscreen/view/splashscreen_view.dart';
 
@@ -25,9 +25,9 @@ class AppPages {
       binding: HomeBinding(),
     ),
     GetPage(
-      name: _Paths.OCR,
-      page: () => const OcrView(),
-      binding: OcrBinding(),
+      name: _Paths.RESULT,
+      page: () => const ResultView(),
+      binding: ResultBinding(),
     ),
   ];
 }

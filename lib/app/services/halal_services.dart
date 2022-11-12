@@ -4,6 +4,11 @@ import 'package:flutter/services.dart';
 import 'package:halalin/app/data/models/ingredient.dart';
 
 class HalalServices {
+  // HalalServices();
+  // static final HalalServices _instance = HalalServices._internal();
+  // static HalalServices get instance => _instance;
+  // HalalServices._internal();
+
   // get dataset
   static Future<List<Ingredient>> getDataService() async {
     var load = await rootBundle.loadString('assets/dataset/dataset\.json');
@@ -14,8 +19,8 @@ class HalalServices {
   }
 
   // get result data
-  static Future<List<Ingredient>> getHalal(
-      {required String input, required List<Ingredient> ingrident}) async {
+  static Future<List<Ingredient>> getHalal({required String input}) async {
+    List<Ingredient> ingrident = await getDataService();
     //set list of kode
     List<String> kodes = [];
     for (var v in ingrident) {

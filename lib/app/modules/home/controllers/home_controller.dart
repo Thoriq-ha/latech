@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_tesseract_ocr/android_ios.dart';
 import 'package:get/get.dart';
 import 'package:halalin/app/data/models/ingredient.dart';
-import 'package:halalin/app/modules/home/views/tabs/ocr_screen.dart';
+import 'package:halalin/app/modules/home/views/tabs/ocr/views/text_detector_view.dart';
 import 'package:halalin/app/services/halal_services.dart';
 import 'package:image_picker/image_picker.dart';
 
@@ -11,17 +11,10 @@ class HomeController extends GetxController {
   RxList<Ingredient> result = RxList();
   RxInt currentIndex = 0.obs;
   List<Widget> viewBody = [
-    const OcrScreen(),
-    Container(),
+    const Center(child: Text('Setting')),
+    TextRecognizerView(),
     const Center(child: Text('Setting')),
   ];
-
-  final count = 0.obs;
-
-  @override
-  void onInit() {
-    super.onInit();
-  }
 
   RxString ocrText = ''.obs;
   String lang = "eng";
@@ -30,14 +23,12 @@ class HomeController extends GetxController {
 
   Future<void> getData() async {
     data.clear();
-    var res = await HalalServices.getDataService();
-    data.addAll(res);
   }
 
   Future<List<Ingredient>> getResult({required String input}) async {
     await getData();
     result.clear();
-    var res = await HalalServices.getHalal(input: input, ingrident: data.value);
+    var res = await HalalServices.getHalal(input: input);
     result.addAll(res);
     return res;
   }
