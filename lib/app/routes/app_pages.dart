@@ -1,9 +1,13 @@
 import 'package:get/get.dart';
-import 'package:halalin/app/modules/home/views/tabs/ocr/bindings/ocr_binding.dart';
-import 'package:halalin/app/modules/home/views/tabs/ocr/views/ocr_view.dart';
 
-import '../modules/home/bindings/home_binding.dart';
-import '../modules/home/views/home_view.dart';
+import '../modules/main/bindings/main_binding.dart';
+import '../modules/main/views/main_view.dart';
+import '../modules/main/views/tabs/about/bindings/about_binding.dart';
+import '../modules/main/views/tabs/about/views/about_view.dart';
+import '../modules/main/views/tabs/home/bindings/home_binding.dart';
+import '../modules/main/views/tabs/home/views/home_view.dart';
+import '../modules/main/views/tabs/ocr/bindings/ocr_binding.dart';
+import '../modules/main/views/tabs/ocr/views/ocr_view.dart';
 import '../modules/result/bindings/result_binding.dart';
 import '../modules/result/views/result_view.dart';
 import '../modules/splashscreen/bindings/splashscreen_binding.dart';
@@ -22,8 +26,13 @@ class AppPages {
         page: () => SplashScreenView(),
         binding: SplashScreenBinding()),
     GetPage(
+      name: _Paths.MAIN,
+      page: () => MainView(),
+      binding: MainBinding(),
+    ),
+    GetPage(
       name: _Paths.HOME,
-      page: () => HomeView(),
+      page: () => const HomeView(),
       binding: HomeBinding(),
     ),
     GetPage(
@@ -35,6 +44,11 @@ class AppPages {
       name: _Paths.OCR,
       page: () => const OcrView(),
       binding: OcrBinding(),
+    ),
+    GetPage(
+      name: _Paths.ABOUT,
+      page: () => const AboutView(),
+      binding: AboutBinding(),
     ),
   ];
 }

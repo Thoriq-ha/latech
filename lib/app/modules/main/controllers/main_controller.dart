@@ -1,20 +1,23 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_tesseract_ocr/android_ios.dart';
 import 'package:get/get.dart';
 import 'package:halalin/app/data/models/ingredient.dart';
-import 'package:halalin/app/modules/home/views/tabs/ocr/views/text_detector_view.dart';
+import 'package:halalin/app/modules/main/views/tabs/about/views/about_view.dart';
+import 'package:halalin/app/modules/main/views/tabs/home/views/home_view.dart';
+import 'package:halalin/app/modules/main/views/tabs/ocr/views/text_detector_view.dart';
 import 'package:halalin/app/services/halal_services.dart';
 import 'package:image_picker/image_picker.dart';
 
-class HomeController extends GetxController {
+class MainController extends GetxController {
   RxList<Ingredient> data = RxList();
   RxList<Ingredient> result = RxList();
-  RxInt currentIndex = 0.obs;
+  final RxInt currentIndex = 0.obs;
   List<Widget> viewBody = [
-    const Center(child: Text('Home')),
+    const HomeView(),
     // const Center(child: Text('Camera')),
     TextRecognizerView(),
-    const Center(child: Text('Setting')),
+    const AboutView(),
   ];
 
   RxString ocrText = ''.obs;

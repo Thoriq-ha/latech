@@ -1,19 +1,13 @@
-import 'package:bottom_navy_bar/bottom_navy_bar.dart';
-import 'package:camera/camera.dart';
 import 'package:convex_bottom_bar/convex_bottom_bar.dart';
-import 'dart:io';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:halalin/app/constant/theme.dart';
-import 'package:halalin/app/constant/values.dart';
-import 'package:halalin/app/routes/app_pages.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 
-import '../controllers/home_controller.dart';
+import '../controllers/main_controller.dart';
 
-class HomeView extends GetView<HomeController> {
-  HomeView({Key? key}) : super(key: key);
+class MainView extends GetView<MainController> {
+  MainView({Key? key}) : super(key: key);
 
   List<TabItem> tabItem = [
     TabItem(
@@ -40,9 +34,11 @@ class HomeView extends GetView<HomeController> {
       return controller.viewBody[controller.currentIndex.value];
     }), bottomNavigationBar: Obx(() {
       return ConvexAppBar(
+          activeColor: Colors.black,
           style: TabStyle.fixedCircle,
           initialActiveIndex: controller.currentIndex.value,
           backgroundColor: Colors.white,
+          color: Colors.amber,
           onTap: (index) {
             controller.currentIndex.value = index;
             // if (controller.currentIndex.value == cameraNavBarIndex) {
