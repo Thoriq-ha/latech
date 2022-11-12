@@ -55,9 +55,9 @@ class AboutView extends GetView<AboutController> {
 
                       Padding(
                         padding: const EdgeInsets.only(top: 16.0),
-                        child: Text(controller.teamList[index].nama, style: textMediumDefault,),
+                        child: Text(controller.teamList[index].nama, style: textCustom(FontWeight.w500, 12, Colors.black),),
                       ),
-                      Text("(${controller.teamList[index].bagian})", style: textMediumDefault,)
+                      Text("(${controller.teamList[index].bagian})", style: textCustom(FontWeight.w500, 12, Colors.black),)
                     ],
                   )),
             );
