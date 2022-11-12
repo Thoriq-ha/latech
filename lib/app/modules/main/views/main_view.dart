@@ -13,17 +13,17 @@ class MainView extends GetView<MainController> {
     TabItem(
         icon: Icon(
       Icons.apps,
-      color: primary,
+      color: Colors.grey,
     )),
     TabItem(
         icon: Icon(
       Icons.camera,
-      color: primary,
+      color: Colors.grey,
     )),
     TabItem(
         icon: Icon(
       Icons.settings,
-      color: primary,
+      color: Colors.grey,
     ))
   ];
 
@@ -34,18 +34,51 @@ class MainView extends GetView<MainController> {
       return controller.viewBody[controller.currentIndex.value];
     }), bottomNavigationBar: Obx(() {
       return ConvexAppBar(
-          activeColor: Colors.black,
+          // activeColor: Colors.black,
           style: TabStyle.fixedCircle,
           initialActiveIndex: controller.currentIndex.value,
           backgroundColor: Colors.white,
-          color: Colors.amber,
           onTap: (index) {
             controller.currentIndex.value = index;
+
             // if (controller.currentIndex.value == cameraNavBarIndex) {
             //   Get.toNamed(Routes.OCR);
             // }
           },
-          items: tabItem);
+          items: [
+            (controller.currentIndex.value == 0)
+                ? TabItem(
+                icon: Icon(
+                  Icons.apps,
+                  color: primary,
+                )): TabItem(
+              icon: Icon(
+              Icons.apps,
+              color: Colors.grey,
+            ),),
+            (controller.currentIndex.value == 1)
+                ? TabItem(
+                icon: Icon(
+                  Icons.camera,
+                  color: primary,
+                )): TabItem(
+              icon: Icon(
+                Icons.camera,
+                color: Colors.grey,
+              ),),
+            (controller.currentIndex.value == 2)
+                ? TabItem(
+                icon: Icon(
+                  Icons.settings,
+                  color: primary,
+                )): TabItem(
+              icon: Icon(
+                Icons.settings,
+                color: Colors.grey,
+              ),)
+
+
+          ]);
     }));
   }
 }
