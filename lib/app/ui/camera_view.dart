@@ -118,12 +118,24 @@ class _CameraViewState extends State<CameraView> {
         height: 70.0,
         width: 70.0,
         child: FloatingActionButton(
-          backgroundColor: primary,
+          backgroundColor: primaryAccent,
           onPressed: _takePicture,
-          child: const Icon(
-            Icons.camera_enhance,
-            size: 40,
-          ),
+          child: Padding(
+            padding: const EdgeInsets.all(2.0),
+            child: Container(
+              padding: EdgeInsets.all(4.0),
+              decoration: BoxDecoration(
+                color: primary,
+                shape: BoxShape.circle,
+              ),
+              child: Container(
+                decoration: BoxDecoration(
+                  color: primaryAccent,
+                    shape: BoxShape.circle
+                ),
+              ),
+            ),
+          )
         ));
   }
 
