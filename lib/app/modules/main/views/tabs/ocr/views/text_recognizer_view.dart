@@ -7,6 +7,8 @@ import 'package:halalin/app/ui/text_detector_painter.dart';
 import '../../../../../../ui/camera_view.dart';
 
 class TextRecognizerView extends StatefulWidget {
+  const TextRecognizerView({Key? key}) : super(key: key);
+
   @override
   State<TextRecognizerView> createState() => _TextRecognizerViewState();
 }
