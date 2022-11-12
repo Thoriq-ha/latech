@@ -1,5 +1,7 @@
 // import 'dart:html';
 
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -27,8 +29,25 @@ class HomeView extends GetView<HomeController> {
           bottom: appBarBottom(),
           expandedHeight: getDeviceHeight(context) * 0.26);
 
+      Widget textSliver = SliverToBoxAdapter(
+        child: Padding(
+          padding: const EdgeInsets.only(
+            left: 16,
+            right: 16,
+            top: 28
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text("Halal Food", style: textCustom(semiBoldFont, 20)),
+              Text("Foods with no pork or alcohol", style: textMediumDefault,),
+            ],
+          ),
+        ),
+      );
+
       Widget body = SliverPadding(
-        padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 32),
+        padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 16),
         sliver: SliverGrid(
           gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
             maxCrossAxisExtent: 200.0,
@@ -49,6 +68,7 @@ class HomeView extends GetView<HomeController> {
       );
       List<Widget> sliver = [];
       sliver.add(apbbar);
+      sliver.add(textSliver);
       sliver.add(body);
 
       return sliver;
@@ -99,6 +119,7 @@ class HomeView extends GetView<HomeController> {
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20.0),
             child: TextField(
+              style: textRegularDefault,
               maxLines: 1,
               maxLength: 40,
               decoration: InputDecoration(
