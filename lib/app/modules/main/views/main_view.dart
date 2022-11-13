@@ -32,7 +32,7 @@ class MainView extends GetView<MainController> {
           },
           items: [
             tabItem(Iconsax.home, 0, controller.currentIndex.value),
-            tabItem(Iconsax.scan, 1, controller.currentIndex.value),
+            tabItemwithSize(Iconsax.scan, 1, controller.currentIndex.value, 32),
             tabItem(Iconsax.bookmark, 2, controller.currentIndex.value),
           ]);
     }));
@@ -51,5 +51,21 @@ class MainView extends GetView<MainController> {
               color: Colors.grey,
             ),
           );
+  }
+  TabItem tabItemwithSize(IconData icon, currentIndex, index, double size) {
+    return (index == currentIndex)
+        ? TabItem(
+        icon: Icon(
+          icon,
+          color: primary,
+          size: size,
+        ))
+        : TabItem(
+      icon: Icon(
+        icon,
+        color: Colors.grey,
+        size: size,
+      ),
+    );
   }
 }

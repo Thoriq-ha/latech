@@ -32,6 +32,7 @@ class ResultView extends GetView<ResultController> {
         return false;
       },
       child: Scaffold(
+        extendBody: true,
         appBar: AppBar(
           backgroundColor: primaryAccent,
           leading: IconButton(
@@ -73,10 +74,12 @@ class ResultView extends GetView<ResultController> {
       controller: controller.slidingController,
       minHeight: 60,
       isDraggable: true,
-      header: Container(
+      backdropEnabled: true,
+      borderRadius: const BorderRadius.only(topRight: Radius.circular(20), topLeft: Radius.circular(20)),
+      header: SizedBox(
         height: 60,
-        color: Colors.white,
         width: MediaQuery.of(context).size.width,
+
         child: IconButton(
             onPressed: () {
               if (controller.slidingController.panelPosition == 1) {
@@ -87,107 +90,117 @@ class ResultView extends GetView<ResultController> {
             },
             icon: const Icon(Iconsax.arrow_circle_up)),
       ),
-      panel: ListView(
-        children: [
-          Container(height: 60),
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 16, vertical: 6),
-            child: Text(
-              'Recognized Image :',
-              textAlign: TextAlign.justify,
-              style: textCustom(semiBoldFont, 20, Colors.black),
-            ),
+      panel: Container(
+          decoration: BoxDecoration(
+              color: primaryAccent,
+              borderRadius: const BorderRadius.only(topLeft: Radius.circular(60), topRight: Radius.circular(60))
           ),
-          Padding(
-            padding: const EdgeInsets.symmetric(
-              horizontal: 16,
+        child: ListView(
+          children: [
+            Container(
+              color: Colors.transparent,
+                height: 60,
             ),
-            child: Text(snapshot.data!.text,
-                textAlign: TextAlign.justify, maxLines: 5),
-          ),
-          const SizedBox(height: 24),
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 16, vertical: 6),
-            child: Text(
-              'E-CODE Inggredients :',
-              textAlign: TextAlign.justify,
-              style: textCustom(semiBoldFont, 20, Colors.black),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 6),
+              child: Text(
+                'Recognized Image :',
+                textAlign: TextAlign.justify,
+                style: textCustom(semiBoldFont, 20, Colors.black),
+              ),
             ),
-          ),
-          if (snapshot.data != null)
-            FutureBuilder<List<Ingredient>>(
-              future: HalalServices.getHalal(input: snapshot.data!.text),
-              builder: (context, snapshot) {
-                if (snapshot.connectionState == ConnectionState.waiting) {
-                  return const CircularProgressIndicator();
-                } else {
-                  if (snapshot.data == null) {
+            Padding(
+              padding: const EdgeInsets.symmetric(
+                horizontal: 16,
+              ),
+              child: Text(snapshot.data!.text,
+                  textAlign: TextAlign.justify, maxLines: 5),
+            ),
+            const SizedBox(
+                height: 24),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 6),
+              child: Text(
+                'E-CODE Inggredients :',
+                textAlign: TextAlign.justify,
+                style: textCustom(semiBoldFont, 20, Colors.black),
+              ),
+            ),
+            if (snapshot.data != null)
+              FutureBuilder<List<Ingredient>>(
+                future: HalalServices.getHalal(input: snapshot.data!.text),
+                builder: (context, snapshot) {
+                  if (snapshot.connectionState == ConnectionState.waiting) {
+                    return const CircularProgressIndicator();
+                  } else {
+                    if (snapshot.data == null) {
+                      return Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                        child: Text(
+                            'Result Is Empty ',
+                            textAlign: TextAlign.justify,
+                            style: textCustom(regularFont, 16, Colors.black),
+                        ),
+                      );
+                    }
                     return Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                      child: Text(
-                          'Result Is Empty ',
-                          textAlign: TextAlign.justify,
-                          style: textCustom(regularFont, 16, Colors.black),
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 12, horizontal: 16),
+                      child: Container(
+                        color: primaryAccent,
+                        height: (200.0 * snapshot.data!.length),
+                        child: ListView.builder(
+                          physics: const NeverScrollableScrollPhysics(),
+                          itemCount: snapshot.data!.length,
+                          itemBuilder: (context, index) {
+                            var dataResult = snapshot.data![index];
+                            return Padding(
+                              padding: const EdgeInsets.symmetric(vertical: 16),
+                              child: Stack(
+                                children: [
+                                  Image.asset(resultCard),
+                                  Padding(
+                                    padding: const EdgeInsets.all(26.0),
+                                    child: SizedBox(
+                                      height: 100,
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Text(dataResult.name,
+                                              style:
+                                                  const TextStyle(fontSize: 14)),
+                                          Text(
+                                            dataResult.kode,
+                                            style: const TextStyle(
+                                                fontSize: 20,
+                                                fontWeight: FontWeight.w600),
+                                          ),
+                                          Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.spaceBetween,
+                                              children:
+                                                  label(ingred: dataResult)),
+                                        ],
+                                      ),
+                                    ),
+                                  )
+                                ],
+                              ),
+                            );
+                          },
+                        ),
                       ),
                     );
                   }
-                  return Padding(
-                    padding: const EdgeInsets.symmetric(
-                        vertical: 12, horizontal: 16),
-                    child: Container(
-                      color: Colors.white,
-                      height: (200.0 * snapshot.data!.length),
-                      child: ListView.builder(
-                        physics: const NeverScrollableScrollPhysics(),
-                        itemCount: snapshot.data!.length,
-                        itemBuilder: (context, index) {
-                          var dataResult = snapshot.data![index];
-                          return Padding(
-                            padding: const EdgeInsets.symmetric(vertical: 16),
-                            child: Stack(
-                              children: [
-                                Image.asset(resultCard),
-                                Padding(
-                                  padding: const EdgeInsets.all(26.0),
-                                  child: SizedBox(
-                                    height: 100,
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Text(dataResult.name,
-                                            style:
-                                                const TextStyle(fontSize: 14)),
-                                        Text(
-                                          dataResult.kode,
-                                          style: const TextStyle(
-                                              fontSize: 20,
-                                              fontWeight: FontWeight.w600),
-                                        ),
-                                        Row(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.spaceBetween,
-                                            children:
-                                                label(ingred: dataResult)),
-                                      ],
-                                    ),
-                                  ),
-                                )
-                              ],
-                            ),
-                          );
-                        },
-                      ),
-                    ),
-                  );
-                }
-              },
-            )
-          else
-            const Text('Result is Empty')
-        ],
+                },
+              )
+            else
+              const Text('Result is Empty')
+          ],
+        ),
       ),
     );
   }
