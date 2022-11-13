@@ -15,7 +15,8 @@ class SplashScreenView extends GetView<SplashScreenController> {
           color: primary,
           child: Stack(
             children: [
-              Obx((() => logoAnimation())),
+              // Obx((() => ())),
+              logoAnimation(),
               topOrnament(),
               bottomOrnament()
             ],
@@ -31,8 +32,7 @@ class SplashScreenView extends GetView<SplashScreenController> {
             alignment: Alignment.center,
             child: Image.asset(
               logo,
-              scale: 1.4,
-              opacity: AlwaysStoppedAnimation(controller.opacity.value),
+              scale: 1,
             )));
   }
 
@@ -44,7 +44,7 @@ class SplashScreenView extends GetView<SplashScreenController> {
             alignment: Alignment.topLeft,
             child: Image.asset(
               ornamentTop,
-              scale: 1.4,
+              scale: 2,
             )));
   }
 
