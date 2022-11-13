@@ -80,6 +80,8 @@ class _CameraViewState extends State<CameraView> {
     } else {
       _mode = ScreenMode.gallery;
     }
+
+    _controller!.setFlashMode(FlashMode.off);
   }
 
   @override
@@ -140,14 +142,14 @@ class _CameraViewState extends State<CameraView> {
           Align(
             alignment: Alignment.bottomRight,
             child: Text(
-              (!isFlashOff)? "On" : "Off",
+              (isFlashOff)? "On" : "Off",
               style: textCustom(FontWeight.w100, 14, primaryAccent),),
           ),
           Positioned.fill(
             child: IconButton(
                 onPressed: (){
                   setState(() {
-                    if(!isFlashOff){
+                    if(isFlashOff){
                       _controller!.setFlashMode(FlashMode.off);
 
                     } else{
@@ -157,7 +159,7 @@ class _CameraViewState extends State<CameraView> {
                   });
                 },
                 icon: Icon(
-                  (!isFlashOff)? Icons.flash_on : Icons.flash_off,
+                  (isFlashOff)? Icons.flash_on : Icons.flash_off,
                   color: primaryAccent,
                   size: 38,
                 )
