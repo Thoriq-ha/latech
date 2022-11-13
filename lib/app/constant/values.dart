@@ -23,9 +23,11 @@ const String sadadPhotoProfile = 'assets/images/pp/sadadPP.png';
 const String thoriqPhotoProfile = 'assets/images/pp/thoriqPP.png';
 
 //text
+const String resultViewAppbarTitle = "Scan result";
 const String searchHintText = "Search halal foods";
 const String textImageError = "Whops! Unable to load image";
 
+//size
 double getDeviceHeight(BuildContext context) {
   return MediaQuery.of(context).size.height;
 }
@@ -33,3 +35,5 @@ double getDeviceHeight(BuildContext context) {
 double getDeviceWidth(BuildContext context) {
   return MediaQuery.of(context).size.width;
 }
+
+double roundButtonSize = 70.0;

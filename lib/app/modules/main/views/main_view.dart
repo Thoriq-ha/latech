@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:halalin/app/constant/theme.dart';
 import 'package:halalin/app/routes/app_pages.dart';
+import 'package:iconsax/iconsax.dart';
 
 import '../controllers/main_controller.dart';
 
@@ -11,7 +12,8 @@ class MainView extends GetView<MainController> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: Obx(
+    return Scaffold(
+        body: Obx(
       () {
         return controller.viewBody[controller.currentIndex.value];
       },
@@ -29,9 +31,9 @@ class MainView extends GetView<MainController> {
             }
           },
           items: [
-            tabItem(Icons.apps, 0, controller.currentIndex.value),
-            tabItem(Icons.camera, 1, controller.currentIndex.value),
-            tabItem(Icons.bookmark_border, 2, controller.currentIndex.value),
+            tabItem(Iconsax.home, 0, controller.currentIndex.value),
+            tabItem(Iconsax.scan, 1, controller.currentIndex.value),
+            tabItem(Iconsax.bookmark, 2, controller.currentIndex.value),
           ]);
     }));
   }
