@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:halalin/app/constant/theme.dart';
 import 'package:halalin/app/constant/values.dart';
+import 'package:halalin/app/routes/app_pages.dart';
+import 'package:iconsax/iconsax.dart';
 
 import '../controllers/home_controller.dart';
 
@@ -24,6 +26,14 @@ class HomeView extends GetView<HomeController> {
                 floating: false,
                 snap: false,
                 shape: appBarShape(),
+                actions: [
+                  InkWell(
+                    child: IconButton(
+                        onPressed: (){
+                          Get.toNamed(Routes.ABOUT);
+                        }, icon: const Icon(Iconsax.info_circle)),
+                  )
+                ],
                 flexibleSpace: appBarBackground(),
                 bottom: appBarBottom(context),
                 expandedHeight: getDeviceHeight(context) * 0.26),
@@ -131,6 +141,7 @@ class HomeView extends GetView<HomeController> {
                                           ? Icons.bookmark
                                           : Icons.bookmark_border,
                                       size: 24,
+                                      color: primary,
                                     )),
                               ),
                             ],
