@@ -3,17 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:halalin/app/constant/theme.dart';
 import 'package:halalin/app/routes/app_pages.dart';
-import 'package:sliding_up_panel/sliding_up_panel.dart';
 
 import '../controllers/main_controller.dart';
 
 class MainView extends GetView<MainController> {
-  MainView({Key? key}) : super(key: key);
+  const MainView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    // PanelController panelController = PanelController();
-
     return Scaffold(body: Obx(
       () {
         return controller.viewBody[controller.currentIndex.value];
@@ -34,7 +31,7 @@ class MainView extends GetView<MainController> {
           items: [
             tabItem(Icons.apps, 0, controller.currentIndex.value),
             tabItem(Icons.camera, 1, controller.currentIndex.value),
-            tabItem(Icons.settings, 2, controller.currentIndex.value),
+            tabItem(Icons.bookmark_border, 2, controller.currentIndex.value),
           ]);
     }));
   }
