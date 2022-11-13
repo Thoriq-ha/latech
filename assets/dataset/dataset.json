@@ -2,17 +2,31 @@
   "data": [
     {
       "kode": "E100",
-      "name": "Orange Yellow S",
+      "name": "Curcumin/Turmeric",
       "tipe": "Color",
-      "desc": "Halal if used as 100% dry color. \nMushbooh if used as liquid color, \nthe solvent has to be Halal",
-      "status": ["Halal", "Mushbooh"]
+      "desc": "Powder or granular. Mushbooh if used as liquid, \nthe solvents has to be Halal. Haraam if hidden \ningredient is pork fat based emulsifier in dry mix.",
+      "status": ["Halal", "Haram", "Mushbooh"]
     },
     {
       "kode": "E101",
-      "name": "Sunset Yellow FCF / Orange Yellow S",
-      "tipe": "Ol",
+      "name": "Riboflavin (Vitamin B2)",
+      "tipe": "Color",
+      "desc": "Mushbooh  (Haraam if from pork liver & Kidney, \nHalal if 100% plant material)",
+      "status": ["Halal", "Haram", "Mushbooh"]
+    },
+    {
+      "kode": "E102",
+      "name": "Tartrazine",
+      "tipe": "Color",
       "desc": "Halal if used as 100% dry color. \nMushbooh if used as liquid color, \nthe solvent has to be Halal",
-      "status": ["Mushbooh"]
+      "status": ["Halal", "Haram", "Mushbooh"]
+    },
+    {
+      "kode": "E104",
+      "name": "",
+      "tipe": "",
+      "desc": "",
+      "status": ""
     },
     {
       "kode": "E110",
@@ -34,6 +48,986 @@
       "tipe": "Color",
       "desc": "Halal if used as 100% dry color. \nMushbooh if used as liquid color, the solvent has to be Halal",
       "status": ["Halal", "Mushbooh"]
+    },
+    {
+      "kode": "E123",
+      "name": "Amaranth",
+      "tipe": "Color",
+      "desc": "Halal if used as 100% dry color. \nMushbooh if used as liquid color, the solvent has to be Halal",
+      "status": ["Halal", "Mushbooh"]
+    },
+    {
+      "kode": "E124",
+      "name": "Ponceau 4R / Cochineal Red A",
+      "tipe": "Color",
+      "desc": "Halal if used as 100% dry color. \nMushbooh if used as liquid color, the solvent has to be Halal",
+      "status": ["Halal", "Mushbooh"]
+    },
+    {
+      "kode": "E127",
+      "name": "Erythrosine BS",
+      "tipe": "Color",
+      "desc": "Halal if used as 100% dry color. \nMushbooh if used as liquid color, the solvent has to be Halal",
+      "status": ["Halal", "Mushbooh"]
+    },
+    {
+      "kode": "E131",
+      "name": "Patent Blue V",
+      "tipe": "Color",
+      "desc": "Halal if used as 100% dry color. \nMushbooh if used as liquid color, the solvent has to be Halal",
+      "status": ["Halal", "Mushbooh"]
+    },
+    {
+      "kode": "E132",
+      "name": "Indigo Carmine / Idigotine",
+      "tipe": "Color",
+      "desc": "Halal if use as is as a 100% synthetic color  but if pork \nglycerin is added as a solvent then it is Haraam",
+      "status": ["Halal", "Haram"]
+    },
+    {
+      "kode": "E140",
+      "name": "Chlorophyll",
+      "tipe": "Color",
+      "desc": "Halal if use 100% powder or \nHalal if water or vegetable oil was used as a solvent",
+      "status": ["Halal"]
+    },
+    {
+      "kode": "E141",
+      "name": "Copper Complex of Chlorophyll",
+      "tipe": "Color",
+      "desc": "Halal if use 100% powder or \nHalal if water or vegetable oil was used as a solvent",
+      "status": ["Halal"]
+    },
+    {
+      "kode": "E142",
+      "name": "Green S / Acid Brilliant Green BS",
+      "tipe": "Color",
+      "desc": "Halal if used as 100% dry color. \nMushbooh if used as liquid color, the solvent has to be Halal",
+      "status": ["Halal", "Mushbooh"]
+    },
+    {
+      "kode": "E150a",
+      "name": "Caramel Color/with chemicals",
+      "tipe": "Color",
+      "desc": "Halal",
+      "status": ["Halal"]
+    },
+    {
+      "kode": "E150b",
+      "name": "Caramel Color/with chemicals",
+      "tipe": "Color",
+      "desc": "Halal",
+      "status": ["Halal"]
+    },
+    {
+      "kode": "E150c",
+      "name": "Caramel Color/with chemicals",
+      "tipe": "Color",
+      "desc": "Halal",
+      "status": ["Halal"]
+    },
+    {
+      "kode": "E150d",
+      "name": "Caramel Color/with chemicals",
+      "tipe": "Color",
+      "desc": "Halal",
+      "status": ["Halal"]
+    },
+    {
+      "kode": "E151",
+      "name": "Black PN / Brilliant Black BN",
+      "tipe": "Color",
+      "desc": "Halal if used as 100% dry color. \nMushbooh if used as liquid color, the solvent has to be Halal",
+      "status": ["Halal", "Mushbooh"]
+    },
+    {
+      "kode": "E153",
+      "name": "Carbon Black / Vegetable Carbon (Charcoal)",
+      "tipe": "Color",
+      "desc": "Halal if used as 100% dry color. \nMushbooh if used as liquid color, the solvent has to be Halal",
+      "status": ["Halal", "Mushbooh"]
+    },
+    {
+      "kode": "E160a",
+      "name": "Alpha, Beta, Gamma",
+      "tipe": "Color  Carotene",
+      "desc": "Halal if used as 100% dry color. \nMushbooh if used as liquid color, the solvent has to be Halal",
+      "status": ["Halal", "Mushbooh"]
+    },
+    {
+      "kode": "E160b",
+      "name": "Annatto, Bixin, Norbixin",
+      "tipe": "Color  Carotene",
+      "desc": "Halal",
+      "status": ["Halal"]
+    },
+    {
+      "kode": "E160c",
+      "name": "Capsanthin / Capsorbin",
+      "tipe": "Color- Carotene",
+      "desc": "Halal if used as 100% dry color. \nMushbooh if used as liquid color, the solvent has to be Halal",
+      "status": ["Halal", "Mushbooh"]
+    },
+    {
+      "kode": "E160d",
+      "name": "Lycopene",
+      "tipe": "Color  Carotene",
+      "desc": "Halal if used as 100% dry color. \nMushbooh if used as liquid color, the solvent has to be Halal",
+      "status": ["Halal", "Mushbooh"]
+    },
+    {
+      "kode": "E160e",
+      "name": "Beta-apo-8-carotenal",
+      "tipe": "Color  Carotene",
+      "desc": "Halal if used as 100% dry powder or granular or \nHalal if vegetable oil is used as a solvent in liquid form \nas a hidden ingredient. Haraam if pork gelatin is used as \nhidden ingredient or carrier",
+      "status": ["Halal", "Haram"]
+    },
+    {
+      "kode": "E160f",
+      "name": "Ethyl ester of Beta-apo-8-cartonoic acid",
+      "tipe": "Color  Carotene",
+      "desc": "Halal if used as 100% dry powder or granular or \nHalal if vegetable oil is used as a solvent in liquid form \nas a hidden ingredient. Haraam if pork gelatin is used as \nhidden ingredient or carrier",
+      "status": ["Halal", "Haram"]
+    },
+    {
+      "kode": "E161a",
+      "name": "Flavoxanthin",
+      "tipe": "Color",
+      "desc": "Halal if used as 100% dry color. \nMushbooh if used as liquid color, the solvent has to be Halal",
+      "status": ["Halal", "Mushbooh"]
+    },
+    {
+      "kode": "E161b",
+      "name": "Lutein",
+      "tipe": "Color",
+      "desc": "Halal if used as 100% dry powder or granular. \nHaraam if pork gelatin or pork glycerin is added in dry or liquid form",
+      "status": ["Halal", "Haram"]
+    },
+    {
+      "kode": "E161c",
+      "name": "Cryptoxanthin",
+      "tipe": "Color",
+      "desc": "Halal if used as 100% dry color. \nMushbooh if used as liquid color, the solvent has to be Halal",
+      "status": ["Halal", "Mushbooh"]
+    },
+    {
+      "kode": "E161d",
+      "name": "Rubixanthin",
+      "tipe": "Color",
+      "desc": "Halal if used as 100% dry color. \nMushbooh if used as liquid color, the solvent has to be Halal",
+      "status": ["Halal", "Mushbooh"]
+    },
+    {
+      "kode": "E161e",
+      "name": "Violaxanthin",
+      "tipe": "Color",
+      "desc": "Halal if used as 100% dry color. \nMushbooh if used as liquid color, the solvent has to be Halal",
+      "status": ["Halal", "Mushbooh"]
+    },
+    {
+      "kode": "E161f",
+      "name": "Rhodoxanthin",
+      "tipe": "Color",
+      "desc": "Halal if used as 100% dry color. \nMushbooh if used as liquid color, the solvent has to be Halal",
+      "status": ["Halal", "Mushbooh"]
+    },
+    {
+      "kode": "E161g",
+      "name": "Canthaxanthin",
+      "tipe": "Color",
+      "desc": "Halal if used as 100% dry color. \nMushbooh if used as liquid color, the solvent has to be Halal",
+      "status": ["Halal", "Mushbooh"]
+    },
+    {
+      "kode": "E162",
+      "name": "Beetroot Red / Betanin",
+      "tipe": "Color",
+      "desc": "Halal if used as 100% dry color. \nMushbooh if used as liquid color, the solvent has to be Halal",
+      "status": ["Halal", "Mushbooh"]
+    },
+    {
+      "kode": "E163",
+      "name": "Anthocyanins",
+      "tipe": "Color",
+      "desc": "Halal if used as 100% dry color. \nMushbooh if used as liquid color, the solvent has to be Halal",
+      "status": ["Halal", "Mushbooh"]
+    },
+    {
+      "kode": "E170",
+      "name": "Calcium Carbonate (Chalk)",
+      "tipe": "Color  Inorganic",
+      "desc": "Halal if obtained from rock mineral and used as 100% dry \npowder or granular. Mushbooh if used as liquid, solvent has to be Halal",
+      "status": ["Halal", "Mushbooh"]
+    },
+    {
+      "kode": "E171",
+      "name": "Titanium Dioxide",
+      "tipe": "Color  Inorganic",
+      "desc": "Halal",
+      "status": ["Halal"]
+    },
+    {
+      "kode": "E172",
+      "name": "Iron Oxides and Hydroxides",
+      "tipe": "Color  Inorganic",
+      "desc": "Halal",
+      "status": ["Halal"]
+    },
+    {
+      "kode": "E173",
+      "name": "Aluminium",
+      "tipe": "Color  Inorganic",
+      "desc": "Halal",
+      "status": ["Halal"]
+    },
+    {
+      "kode": "E174",
+      "name": "Silver",
+      "tipe": "Color  Inorganic",
+      "desc": "Halal",
+      "status": ["Halal"]
+    },
+    {
+      "kode": "E175",
+      "name": "Gold",
+      "tipe": "Color  Inorganic",
+      "desc": "Halal",
+      "status": ["Halal"]
+    },
+    {
+      "kode": "E180",
+      "name": "Pigment Rubine / Lithol Rubine BK",
+      "tipe": "Color  Inorganic",
+      "desc": "Halal if used as 100% dry color. \nMushbooh if used as liquid color, the solvent has to be Halal",
+      "status": ["Halal", "Mushbooh"]
+    },
+    {
+      "kode": "E200",
+      "name": "Sorbic Acid",
+      "tipe": "Preservative",
+      "desc": "Halal",
+      "status": ["Halal"]
+    },
+    {
+      "kode": "E201",
+      "name": "Soduim Sorbate",
+      "tipe": "Preservative",
+      "desc": "Halal",
+      "status": ["Halal"]
+    },
+    {
+      "kode": "E202",
+      "name": "Potassium Sorbate",
+      "tipe": "Preservative",
+      "desc": "Halal",
+      "status": ["Halal"]
+    },
+    {
+      "kode": "E203",
+      "name": "Calcium Sorbate",
+      "tipe": "Preservative",
+      "desc": "Halal",
+      "status": ["Halal"]
+    },
+    {
+      "kode": "E210",
+      "name": "Benzoic Acid",
+      "tipe": "Preservative",
+      "desc": "Halal",
+      "status": ["Halal"]
+    },
+    {
+      "kode": "E211",
+      "name": "Sodium Benzoate",
+      "tipe": "Preservative",
+      "desc": "Halal",
+      "status": ["Halal"]
+    },
+    {
+      "kode": "E212",
+      "name": "Potassium Benzoate",
+      "tipe": "Preservative",
+      "desc": "Halal",
+      "status": ["Halal"]
+    },
+    {
+      "kode": "E213",
+      "name": "Calcium Benzoate",
+      "tipe": "Preservative",
+      "desc": "Halal, if calcium obtained from mineral, \nMushbooh if it is obtained from bones",
+      "status": ["Halal", "Mushbooh"]
+    },
+    {
+      "kode": "E214",
+      "name": "Ethyl 4-hydroxybenzoate",
+      "tipe": "Preservative",
+      "desc": "Halal, if used as 100% dry powder or granular. \nHaraam if alcohol is used as a solvent",
+      "status": ["Halal", "Haram"]
+    },
+    {
+      "kode": "E215",
+      "name": "Ethyl 4-hydroxybenzoate, Sodium Salt",
+      "tipe": "Preservative",
+      "desc": "Halal, if used as 100% dry powder or granular. \nHaraam if alcohol is used as a solvent",
+      "status": ["Halal", "Haram"]
+    },
+    {
+      "kode": "E216",
+      "name": "Propyl 4-hydroxybenzoate",
+      "tipe": "Preservative",
+      "desc": "Halal, if used as 100% dry powder or granular. \nHaraam if alcohol is used as a solvent",
+      "status": ["Halal", "Haram"]
+    },
+    {
+      "kode": "E217",
+      "name": "Propyl 4-hydroxybenzoate, Sodium Salt",
+      "tipe": "Preservative",
+      "desc": "Halal, if used as 100% dry powder or granular. \nHaraam if alcohol is used as a solvent",
+      "status": ["Halal", "Haram"]
+    },
+    {
+      "kode": "E218",
+      "name": "Methyl 4-hydroxybenzoate",
+      "tipe": "Preservative",
+      "desc": "Halal, if used as 100% dry powder or granular. \nHaraam if alcohol is used as a solvent",
+      "status": ["Halal", "Haram"]
+    },
+    {
+      "kode": "E219",
+      "name": "Methyl 4-hydroxybenzoate, Sodium Salt",
+      "tipe": "Preservative",
+      "desc": "Halal, if used as 100% dry powder or granular. \nHaraam if alcohol is used as a solvent",
+      "status": ["Halal", "Haram"]
+    },
+    {
+      "kode": "E220",
+      "name": "Sulphur Dioxide",
+      "tipe": "Preservative",
+      "desc": "Halal",
+      "status": ["Halal"]
+    },
+    {
+      "kode": "E221",
+      "name": "Sodium Sulphite",
+      "tipe": "Preservative",
+      "desc": "Halal",
+      "status": ["Halal"]
+    },
+    {
+      "kode": "E222",
+      "name": "Sodium Hydrogen Sulphite",
+      "tipe": "Preservative",
+      "desc": "Halal",
+      "status": ["Halal"]
+    },
+    {
+      "kode": "E223",
+      "name": "Sodium Metabisulphite",
+      "tipe": "Preservative",
+      "desc": "Halal",
+      "status": ["Halal"]
+    },
+    {
+      "kode": "E224",
+      "name": "Potassium Metabisulphite",
+      "tipe": "Preservative",
+      "desc": "Halal",
+      "status": ["Halal"]
+    },
+    {
+      "kode": "E226",
+      "name": "Calcium Sulphite",
+      "tipe": "Preservative",
+      "desc": "Halal",
+      "status": ["Halal"]
+    },
+    {
+      "kode": "E227",
+      "name": "Calcium Hydrogen Sulphite",
+      "tipe": "Preservative",
+      "desc": "Halal, if calcium is obtained from mineral or chemicals. \nMushbooh if it is obtained from bones.",
+      "status": ["Halal", "Mushbooh"]
+    },
+    {
+      "kode": "E230",
+      "name": "Biphenyl / Diphenyl",
+      "tipe": "Preservative",
+      "desc": "Halal, if no alcohol is used as a solvent",
+      "status": ["Halal"]
+    },
+    {
+      "kode": "E231",
+      "name": "2-Hydroxybiphenyl",
+      "tipe": "Preservative",
+      "desc": "Halal, if no alcohol is used as a solvent",
+      "status": ["Halal"]
+    },
+    {
+      "kode": "E232",
+      "name": "Sodium Biphenyl-2-yl Oxide",
+      "tipe": "Preservative",
+      "desc": "Halal, if no alcohol is used as a solvent",
+      "status": ["Halal"]
+    },
+    {
+      "kode": "E233",
+      "name": "2-(Thiazol-4-yl) Benzimidazole",
+      "tipe": "Preservative",
+      "desc": "Halal, if no alcohol is used as a solvent",
+      "status": ["Halal"]
+    },
+    {
+      "kode": "E239",
+      "name": "Hexamine",
+      "tipe": "Preservative  other",
+      "desc": "Halal",
+      "status": ["Halal"]
+    },
+    {
+      "kode": "E249",
+      "name": "Potassium Nitrate",
+      "tipe": "Preservative",
+      "desc": "Halal",
+      "status": ["Halal"]
+    },
+    {
+      "kode": "E250",
+      "name": "Sodium Nitrite",
+      "tipe": "Preservative",
+      "desc": "Halal",
+      "status": ["Halal"]
+    },
+    {
+      "kode": "E251",
+      "name": "Sodium Nitrate",
+      "tipe": "Preservative",
+      "desc": "Halal",
+      "status": ["Halal"]
+    },
+    {
+      "kode": "E252",
+      "name": "Potassium Nitrate(Saltpetre)",
+      "tipe": "Preservative",
+      "desc": "Halal",
+      "status": ["Halal"]
+    },
+    {
+      "kode": "E260",
+      "name": "Acetic Acid",
+      "tipe": "Miscellaneous  Acids",
+      "desc": "Halal",
+      "status": ["Halal"]
+    },
+    {
+      "kode": "E261",
+      "name": "Potassium Acetate",
+      "tipe": "Miscellaneous  Acids",
+      "desc": "Halal",
+      "status": ["Halal"]
+    },
+    {
+      "kode": "E262",
+      "name": "Potassium Hydrogen Diacetate",
+      "tipe": "Miscellaneous  Acids",
+      "desc": "Halal",
+      "status": ["Halal"]
+    },
+    {
+      "kode": "E263",
+      "name": "Calcium Acetate",
+      "tipe": "Miscellaneous  Acids",
+      "desc": "Halal",
+      "status": ["Halal"]
+    },
+    {
+      "kode": "E270",
+      "name": "Lactic Acid",
+      "tipe": "Miscellaneous  Acids",
+      "desc": "Halal if obtained other than whey. \nIn USA it is always from non dairy source.",
+      "status": ["Halal"]
+    },
+    {
+      "kode": "E280",
+      "name": "Propionic Acid",
+      "tipe": "Preservative  Acids",
+      "desc": "Halal",
+      "status": ["Halal"]
+    },
+    {
+      "kode": "E281",
+      "name": "Sodium Propionate",
+      "tipe": "Preservative- Acids",
+      "desc": "Halal",
+      "status": ["Halal"]
+    },
+    {
+      "kode": "E282",
+      "name": "Calcium Propionate",
+      "tipe": "Preservative- Acids",
+      "desc": "Halal if calcium obtained from mineral, \nMushbooh if it obtained from bones",
+      "status": ["Halal", "Mushbooh"]
+    },
+    {
+      "kode": "E283",
+      "name": "Potassium Propionate",
+      "tipe": "Preservative- Acids",
+      "desc": "Halal",
+      "status": ["Halal"]
+    },
+    {
+      "kode": "E290",
+      "name": "Carbon Dioxide",
+      "tipe": "Miscellaneous",
+      "desc": "Halal",
+      "status": ["Halal"]
+    },
+    {
+      "kode": "E300",
+      "name": "L-Ascorbic Acid (Vitamin C)",
+      "tipe": "Antioxidants- Vitamin C",
+      "desc": "Halal",
+      "status": ["Halal"]
+    },
+    {
+      "kode": "E301",
+      "name": "Sodium-L-Ascorbate",
+      "tipe": "Antioxidants- Vitamin C and derivatives",
+      "desc": "Halal",
+      "status": ["Halal"]
+    },
+    {
+      "kode": "E302",
+      "name": "Calcium-L-Ascorbate",
+      "tipe": "Antioxidants- Vitamin C and derivatives",
+      "desc": "Halal, if the calcium source is from mineral, \nMushbooh if it is from bones",
+      "status": ["Halal", "Mushbooh"]
+    },
+    {
+      "kode": "E304",
+      "name": "Ascorbyl Palmitate",
+      "tipe": "Antioxidants- Vitamin C and derivatives",
+      "desc": "Halal if saturated  fatty acid Palmitic acid is obtained from plant. \nHaraam if palmitic acid is obtained from pork fat",
+      "status": ["Halal", "Haram"]
+    },
+    {
+      "kode": "E306",
+      "name": "Natural Extracts rich in Tocopherols",
+      "tipe": "Antioxidants- Vitamin E",
+      "desc": "Halal If Tocopherol is obtained from plant fat. \nHaraam if Tocopherol is obtained from pork fat",
+      "status": ["Halal", "Haram"]
+    },
+    {
+      "kode": "E307",
+      "name": "Synthetic Alpha-Tocopherol",
+      "tipe": "Antioxidants- Vitamin E",
+      "desc": "Halal only if it is made with all Halal synthetic \nmaterial without alcoholic fermentation synthetic method",
+      "status": ["Halal"]
+    },
+    {
+      "kode": "E308",
+      "name": "Synthetic Gamma-Tocopherol",
+      "tipe": "Antioxidants- Vitamin E",
+      "desc": "Halal only if it is made with all Halal synthetic \nmaterial without alcoholic fermentation synthetic method",
+      "status": ["Halal"]
+    },
+    {
+      "kode": "E309",
+      "name": "Synthetic Delta-Tocopherol",
+      "tipe": "Antioxidants- Vitamin E",
+      "desc": "Halal only if it is made with all Halal synthetic \nmaterial without alcoholic fermentation synthetic method",
+      "status": ["Halal"]
+    },
+    {
+      "kode": "E310",
+      "name": "Propyl Gallate",
+      "tipe": "Antioxidants- other",
+      "desc": "Halal",
+      "status": ["Halal"]
+    },
+    {
+      "kode": "E311",
+      "name": "Octyl Gallate",
+      "tipe": "Antioxidants- other",
+      "desc": "Halal if obtained from nutgalls or plant secretion",
+      "status": ["Halal"]
+    },
+    {
+      "kode": "E312",
+      "name": "Dodecyl Gallate",
+      "tipe": "Antioxidants- other",
+      "desc": "Halal if obtained from nutgalls or plant secretion. \nHaraam if alcohol was used as solvent",
+      "status": ["Halal", "Haram"]
+    },
+    {
+      "kode": "E320",
+      "name": "Butylated Hydroxyanisole (BHA)",
+      "tipe": "Antioxidants- other",
+      "desc": "Halal if only vegetable oil is used as a carrier. \nHaraam if the carrier is from pork fat. \nIt is not available as pure 100% chemical.",
+      "status": ["Halal", "Haram"]
+    },
+    {
+      "kode": "E321",
+      "name": "Butylated Hydroxytoluene (BHT)",
+      "tipe": "Antioxidants- other",
+      "desc": "Halal if only vegetable oil is used as a carrier. \nHaraam if the carrier is from pork fat. \nIt is not available as pure 100% chemical.",
+      "status": ["Halal", "Haram"]
+    },
+    {
+      "kode": "E322",
+      "name": "Lecithin",
+      "tipe": "Emulsifiers and Stabilizers",
+      "desc": "Halal if obtained from soy fat or egg yolk in Europe. \nIt is Halal in USA because it is always obtained from soy fat.",
+      "status": ["Halal"]
+    },
+    {
+      "kode": "E325",
+      "name": "Sodium Lactate",
+      "tipe": "Miscellaneous  Salts of Lactic Acid",
+      "desc": "Halal if the lactic acid from non dairy source",
+      "status": ["Halal"]
+    },
+    {
+      "kode": "E326",
+      "name": "Potassium Lactate",
+      "tipe": "Miscellaneous  Salts of Lactic Acid",
+      "desc": "Halalif the lactic acid from non dairy source",
+      "status": ["Halal"]
+    },
+    {
+      "kode": "E327",
+      "name": "Calcium Lactate",
+      "tipe": "Miscellaneous  Salts of Lactic Acid",
+      "desc": "Halalif the lactic acid from non dairy source and calcium from mineral",
+      "status": ["Halal"]
+    },
+    {
+      "kode": "E330",
+      "name": "Citric Acid",
+      "tipe": "Miscellaneous  Citric Acid and its Salts",
+      "desc": "Halal",
+      "status": ["Halal"]
+    },
+    {
+      "kode": "E331",
+      "name": "Sodium Citrates",
+      "tipe": "Miscellaneous  Citric Acid and its Salts",
+      "desc": "Halal",
+      "status": ["Halal"]
+    },
+    {
+      "kode": "E332",
+      "name": "Potassium Citrates",
+      "tipe": "Miscellaneous  Citric Acid and its Salts",
+      "desc": "Halal",
+      "status": ["Halal"]
+    },
+    {
+      "kode": "E333",
+      "name": "Calcium Citrates",
+      "tipe": "Miscellaneous  Citric Acid and its Salts",
+      "desc": "Halal if calcium source is not from bones",
+      "status": ["Halal"]
+    },
+    {
+      "kode": "E334",
+      "name": "Tartaric Acid",
+      "tipe": "Miscellaneous  Citric Acid and its Salts",
+      "desc": "Halal, if it is not obtained from wine by-product, \nin USA it is Halal because it is obtained from un-fermented grapes.",
+      "status": ["Halal"]
+    },
+    {
+      "kode": "E335",
+      "name": "Sodium Tartrates",
+      "tipe": "Miscellaneous  Citric Acid and its Salts",
+      "desc": "Halal, if it is not obtained from wine by-product, \nin USA it is Halal because it is obtained from un-fermented grapes.",
+      "status": ["Halal"]
+    },
+    {
+      "kode": "E336",
+      "name": "Potassium Tartrates (Cream of Tartar)",
+      "tipe": "Miscellaneous  Citric Acid and its Salts",
+      "desc": "Halal, if it is not obtained from wine by-product, \nin USA it is Halal because it is obtained from un-fermented grapes.",
+      "status": ["Halal"]
+    },
+    {
+      "kode": "E337",
+      "name": "Potassium Sodium Tartrates",
+      "tipe": "Miscellaneous  Citric Acid and its Salts",
+      "desc": "Halal, if it is not obtained from wine by-product, \nin USA it is Halal because it is obtained from un-fermented grapes.",
+      "status": ["Halal"]
+    },
+    {
+      "kode": "E338",
+      "name": "Orthophosphoric Acid",
+      "tipe": "Miscellaneous  Phosphoric Acid and its Sailts",
+      "desc": "Halal",
+      "status": ["Halal"]
+    },
+    {
+      "kode": "E339",
+      "name": "Sodium Phosphates",
+      "tipe": "Miscellaneous  Phosphoric Acid and its Sailts",
+      "desc": "Halal",
+      "status": ["Halal"]
+    },
+    {
+      "kode": "E340",
+      "name": "Potassium Phosphates",
+      "tipe": "Miscellaneous  Phosphoric Acid and its Sailts",
+      "desc": "Halal",
+      "status": ["Halal"]
+    },
+    {
+      "kode": "E341",
+      "name": "Calcium Phosphates",
+      "tipe": "Miscellaneous  Phosphoric Acid and its Sailts",
+      "desc": "Halal if calcium from mineral source",
+      "status": ["Halal"]
+    },
+    {
+      "kode": "E400",
+      "name": "Alginic Acid",
+      "tipe": "Emulsifiers and Stabilizers  Alginates",
+      "desc": "Halal",
+      "status": ["Halal"]
+    },
+    {
+      "kode": "E401",
+      "name": "Sodium Alginate",
+      "tipe": "Emulsifiers and Stabilizers  Alginates",
+      "desc": "Halal",
+      "status": ["Halal"]
+    },
+    {
+      "kode": "E402",
+      "name": "Potassium Alginate",
+      "tipe": "Emulsifiers and Stabilizers  Alginates",
+      "desc": "Halal",
+      "status": ["Halal"]
+    },
+    {
+      "kode": "E403",
+      "name": "Ammonium Alginate",
+      "tipe": "Emulsifiers and Stabilizers  Alginates",
+      "desc": "Halal",
+      "status": ["Halal"]
+    },
+    {
+      "kode": "E404",
+      "name": "Calcium Alginate",
+      "tipe": "Emulsifiers and Stabilizers  Alginates",
+      "desc": "Halal if calcium source is from mineral",
+      "status": ["Halal"]
+    },
+    {
+      "kode": "E405",
+      "name": "Propane-1,2-Diol Alginate",
+      "tipe": "Emulsifiers and Stabilizers  Alginates",
+      "desc": "Halal",
+      "status": ["Halal"]
+    },
+    {
+      "kode": "E406",
+      "name": "Agar",
+      "tipe": "Emulsifiers and Stabilizers  other plant gums",
+      "desc": "Halal",
+      "status": ["Halal"]
+    },
+    {
+      "kode": "E407",
+      "name": "Carrageenan",
+      "tipe": "Emulsifiers and Stabilizers  other plant gums",
+      "desc": "Halal",
+      "status": ["Halal"]
+    },
+    {
+      "kode": "E410",
+      "name": "Locust Bean Gum (Carob Gum)",
+      "tipe": "Emulsifiers and Stabilizers  other plant gums",
+      "desc": "Halal",
+      "status": ["Halal"]
+    },
+    {
+      "kode": "E412",
+      "name": "Guar Gum",
+      "tipe": "Emulsifiers and Stabilizers  other plant gums",
+      "desc": "Halal",
+      "status": ["Halal"]
+    },
+    {
+      "kode": "E413",
+      "name": "Tragacanth",
+      "tipe": "Emulsifiers and Stabilizers  other plant gums",
+      "desc": "Halal",
+      "status": ["Halal"]
+    },
+    {
+      "kode": "E414",
+      "name": "Gum Acacia (Gum Arabic)",
+      "tipe": "Emulsifiers and Stabilizers  other plant gums",
+      "desc": "Halal",
+      "status": ["Halal"]
+    },
+    {
+      "kode": "E415",
+      "name": "Xanthan Gum",
+      "tipe": "Emulsifiers and Stabilizers  other plant gums",
+      "desc": "Halal",
+      "status": ["Halal"]
+    },
+    {
+      "kode": "E420",
+      "name": "Sorbitol",
+      "tipe": "Sugar Alcohols",
+      "desc": "Halal",
+      "status": ["Halal"]
+    },
+    {
+      "kode": "E421",
+      "name": "Mannitol",
+      "tipe": "Sugar Alcohols",
+      "desc": "Halal",
+      "status": ["Halal"]
+    },
+    {
+      "kode": "E422",
+      "name": "Glycerol",
+      "tipe": "Sugar Alcohols",
+      "desc": "Mushbooh, called Glycerin in USA, \nHalal if it is from plant fat, Haraam if it is from pork fat",
+      "status": ["Halal", "Haram", "Mushbooh"]
+    },
+    {
+      "kode": "E440a",
+      "name": "Pectin",
+      "tipe": "Emulsifiers and Stabilizers  Pectin and derivatives",
+      "desc": "Halal",
+      "status": ["Halal"]
+    },
+    {
+      "kode": "E440b",
+      "name": "Amidated Pectin",
+      "tipe": "Emulsifiers and Stabilizers  Pectin and derivatives",
+      "desc": "Halal",
+      "status": ["Halal"]
+    },
+    {
+      "kode": "E450a,b,c",
+      "name": "Sodium and Potassium Phosphates and Polyphosphates",
+      "tipe": "Miscellaneous",
+      "desc": "Halal",
+      "status": ["Halal"]
+    },
+    {
+      "kode": "E460",
+      "name": "Microcrystalline / Powdered Cellulose",
+      "tipe": "Emulsifiers and Stabilizers  Cellulose and derivatives",
+      "desc": "Halal",
+      "status": ["Halal"]
+    },
+    {
+      "kode": "E461",
+      "name": "Methylcellulose",
+      "tipe": "Emulsifiers and Stabilizers  Cellulose and derivatives",
+      "desc": "Halal",
+      "status": ["Halal"]
+    },
+    {
+      "kode": "E463",
+      "name": "Hydroxypropylcellulose",
+      "tipe": "Emulsifiers and Stabilizers  Cellulose and derivatives",
+      "desc": "Halal",
+      "status": ["Halal"]
+    },
+    {
+      "kode": "E464",
+      "name": "Hydroxypropyl-Methylcellulose",
+      "tipe": "Emulsifiers and Stabilizers  Cellulose and derivatives",
+      "desc": "Halal",
+      "status": ["Halal"]
+    },
+    {
+      "kode": "E465",
+      "name": "Ethylmethylcellulose",
+      "tipe": "Emulsifiers and Stabilizers  Cellulose and derivatives",
+      "desc": "Halal",
+      "status": ["Halal"]
+    },
+    {
+      "kode": "E466",
+      "name": "Carboxymethylcellulose, Sodium Salt",
+      "tipe": "Emulsifiers and Stabilizers  Cellulose and derivatives",
+      "desc": "Halal",
+      "status": ["Halal"]
+    },
+    {
+      "kode": "E470",
+      "name": "Sodium, Potassium and Calcium Salts of Fatty Acids",
+      "tipe": "Emulsifiers and Stabilizers  salts or Esters of Fatty Acids",
+      "desc": "Mushbooh, Halal if it is from plant fat, \nHaraam if it is from pork fat",
+      "status": ["Halal", "Haram", "Mushbooh"]
+    },
+    {
+      "kode": "E471",
+      "name": "Mono-and Diglycerides of Fatty Acids",
+      "tipe": "Emulsifiers and Stabilizers  salts or Esters of Fatty Acids",
+      "desc": "Mushbooh, Halal if it is from plant fat, \nHaraam if it is from pork fat",
+      "status": ["Halal", "Haram", "Mushbooh"]
+    },
+    {
+      "kode": "E472",
+      "name": "Various Esters of Mono-and Diglycerides",
+      "tipe": "Emulsifiers and Stabilizers  salts or Esters of Fatty Acids",
+      "desc": "Mushbooh, Halal if it is from plant fat, \nHaraam if it is from pork fat",
+      "status": ["Halal", "Haram", "Mushbooh"]
+    },
+    {
+      "kode": "E473",
+      "name": "Sucrose Esters of Fatty Acids",
+      "tipe": "Emulsifiers and Stabilizers  salts or Esters of Fatty Acids",
+      "desc": "Mushbooh, Halal if it is from plant fat, \nHaraam if it is from pork fat",
+      "status": ["Halal", "Haram", "Mushbooh"]
+    },
+    {
+      "kode": "E474",
+      "name": "Sucroglycerides",
+      "tipe": "Emulsifiers and Stabilizers  salts or Esters of Fatty Acids",
+      "desc": "Mushbooh, Halal if it is from plant fat, \nHaraam if it is from pork fat",
+      "status": ["Halal", "Haram", "Mushbooh"]
+    },
+    {
+      "kode": "E475",
+      "name": "Polyglycerol Esters of Fatty Acids",
+      "tipe": "Emulsifiers and Stabilizers  salts or Esters of Fatty Acids",
+      "desc": "Mushbooh, Halal if it is from plant fat, \nHaraam if it is from pork fat",
+      "status": ["Halal", "Haram", "Mushbooh"]
+    },
+    {
+      "kode": "E477",
+      "name": "Propane-1,2-Diol Esters of Fatty Acids",
+      "tipe": "Emulsifiers and Stabilizers  salts or Esters of Fatty Acids",
+      "desc": "Mushbooh, Halal if it is from plant fat, \nHaraam if it is from pork fat",
+      "status": ["Halal", "Haram", "Mushbooh"]
+    },
+    {
+      "kode": "E481",
+      "name": "Sodium Stearoyl-2-Lactylate",
+      "tipe": "Emulsifiers and Stabilizers  salts or Esters of Fatty Acids",
+      "desc": "Mushbooh, Halal if it is from plant fat, \nHaraam if it is from pork fat",
+      "status": ["Halal", "Haram", "Mushbooh"]
+    },
+    {
+      "kode": "E482",
+      "name": "Calcium Stearoyl-2-Lactylate",
+      "tipe": "Emulsifiers and Stabilizers  salts or Esters of Fatty Acids",
+      "desc": "Mushbooh, Halal if it is from plant fat, \nHaraam if it is from pork fat",
+      "status": ["Halal", "Haram", "Mushbooh"]
+    },
+    {
+      "kode": "E483",
+      "name": "Stearyl Tartrate",
+      "tipe": "Emulsifiers and Stabilizers  salts or Esters of Fatty Acids",
+      "desc": "Mushbooh, Halal if it is from plant fat, \nHaraam if it is from pork fat",
+      "status": ["Halal", "Haram", "Mushbooh"]
     }
   ]
 }
