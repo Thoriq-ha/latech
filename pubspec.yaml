@@ -13,6 +13,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   flutter:
     sdk: flutter
+  flutter_launcher_icons: ^0.10.0
   flutter_tesseract_ocr: ^0.4.20
   get: 4.6.5
   google_mlkit_commons: ^0.2.0
@@ -27,6 +28,13 @@ dev_dependencies:
   flutter_lints: ^2.0.0
   flutter_test:
     sdk: flutter
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path: assets/images/launcherfg.png
+  adaptive_icon_background: assets/images/launcherbg.png
+  adaptive_icon_foreground: assets/images/launcherfg.png
 
 flutter:
   uses-material-design: true
@@ -58,6 +66,8 @@ flutter:
     - assets/images/pp/krisnaPP.png
     - assets/images/pp/sadadPP.png
     - assets/images/pp/thoriqPP.png
+    - assets/images/launcherbg.png
+    - assets/images/launcherfg.png
     - assets/
     - assets/dataset/
     - assets/tessdata/
