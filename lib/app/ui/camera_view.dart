@@ -8,6 +8,7 @@ import 'package:google_mlkit_commons/google_mlkit_commons.dart';
 import 'package:halalin/app/constant/theme.dart';
 import 'package:halalin/app/constant/values.dart';
 import 'package:halalin/app/routes/app_pages.dart';
+import 'package:iconsax/iconsax.dart';
 import 'package:image_picker/image_picker.dart';
 
 import '../../main.dart';
@@ -159,7 +160,7 @@ class _CameraViewState extends State<CameraView> {
                   });
                 },
                 icon: Icon(
-                  (isFlashOff)? Icons.flash_on : Icons.flash_off,
+                  (isFlashOff)? Icons.flash_on: Icons.flash_off,
                   color: primaryAccent,
                   size: 38,
                 )
