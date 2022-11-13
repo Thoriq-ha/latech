@@ -10,6 +10,7 @@ import 'package:halalin/app/data/models/ingredient.dart';
 import 'package:halalin/app/data/services/halal_services.dart';
 import 'package:halalin/app/routes/app_pages.dart';
 import 'package:halalin/app/ui/status.dart';
+import 'package:iconsax/iconsax.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 
 import '../controllers/result_controller.dart';
@@ -37,7 +38,9 @@ class ResultView extends GetView<ResultController> {
               onPressed: (){
                 Get.offAllNamed(Routes.OCR);
               },
-              icon: Icon(Icons.arrow_back, color: Colors.black,)),
+              icon: const Icon(Iconsax.arrow_left, color: Colors.black,)),
+          centerTitle: true,
+          title: Text(resultViewAppbarTitle, style: textCustom(mediumFont, 18, Colors.black),),
         ),
         body: FutureBuilder<RecognizedText>(
           future: textRecognizer.processImage(inputImage),
@@ -82,17 +85,17 @@ class ResultView extends GetView<ResultController> {
                 controller.slidingController.animatePanelToPosition(1);
               }
             },
-            icon: const Icon(Icons.linear_scale)),
+            icon: const Icon(Iconsax.arrow_circle_up)),
       ),
       panel: ListView(
         children: [
           Container(height: 60),
-          const Padding(
+          Padding(
             padding: EdgeInsets.symmetric(horizontal: 16, vertical: 6),
             child: Text(
               'Recognized Image :',
               textAlign: TextAlign.justify,
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.w600),
+              style: textCustom(semiBoldFont, 20, Colors.black),
             ),
           ),
           Padding(
@@ -103,12 +106,12 @@ class ResultView extends GetView<ResultController> {
                 textAlign: TextAlign.justify, maxLines: 5),
           ),
           const SizedBox(height: 24),
-          const Padding(
+          Padding(
             padding: EdgeInsets.symmetric(horizontal: 16, vertical: 6),
             child: Text(
               'E-CODE Inggredients :',
               textAlign: TextAlign.justify,
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.w600),
+              style: textCustom(semiBoldFont, 20, Colors.black),
             ),
           ),
           if (snapshot.data != null)
@@ -119,10 +122,13 @@ class ResultView extends GetView<ResultController> {
                   return const CircularProgressIndicator();
                 } else {
                   if (snapshot.data == null) {
-                    return const Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 16),
-                      child: Text('Result Is Empty ',
-                          textAlign: TextAlign.justify),
+                    return Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                      child: Text(
+                          'Result Is Empty ',
+                          textAlign: TextAlign.justify,
+                          style: textCustom(regularFont, 16, Colors.black),
+                      ),
                     );
                   }
                   return Padding(
