@@ -1,10 +1,12 @@
 import 'dart:io';
 import 'package:camera/camera.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_mlkit_commons/google_mlkit_commons.dart';
 import 'package:halalin/app/constant/theme.dart';
+import 'package:halalin/app/constant/values.dart';
 import 'package:halalin/app/routes/app_pages.dart';
 import 'package:image_picker/image_picker.dart';
 
@@ -45,6 +47,8 @@ class _CameraViewState extends State<CameraView> {
   double zoomLevel = 0.0, minZoomLevel = 0.0, maxZoomLevel = 0.0;
   final bool _allowPicker = true;
   bool _changingCameraLens = false;
+
+  bool isFlashOff = false;
 
   @override
   void initState() {
@@ -93,22 +97,27 @@ class _CameraViewState extends State<CameraView> {
       },
       child: Scaffold(
         // appBar: AppBar(
-        //   actions: [
-        //     if (_allowPicker)
-        //       Padding(
-        //         padding: const EdgeInsets.only(right: 20.0),
-        //         child: GestureDetector(
-        //           onTap: _switchScreenMode,
-        //           child: Icon(
-        //             _mode == ScreenMode.liveFeed
-        //                 ? Icons.photo_library_outlined
-        //                 : (Platform.isIOS
-        //                     ? Icons.camera_alt_outlined
-        //                     : Icons.camera),
-        //           ),
-        //         ),
-        //       ),
-        //   ],
+        //   backgroundColor: Colors.black,
+        //   leading: IconButton(
+        //       onPressed: (){
+        //         Get.offAllNamed(Routes.MAIN);
+        //       }, icon: const Icon(Icons.close)),
+          // actions: [
+          //   if (_allowPicker)
+          //     Padding(
+          //       padding: const EdgeInsets.only(right: 20.0),
+          //       child: GestureDetector(
+          //         onTap: _switchScreenMode,
+          //         child: Icon(
+          //           _mode == ScreenMode.liveFeed
+          //               ? Icons.photo_library_outlined
+          //               : (Platform.isIOS
+          //                   ? Icons.camera_alt_outlined
+          //                   : Icons.camera),
+          //         ),
+          //       ),
+          //     ),
+          // ],
         // ),
         body: _body(),
         // floatingActionButton: _floatingActionButton(),
@@ -117,12 +126,54 @@ class _CameraViewState extends State<CameraView> {
     );
   }
 
+  Widget _flashButton(Size size){
+    return Container(
+      height: roundButtonSize * 0.8,
+      width: roundButtonSize * 0.8,
+      margin: EdgeInsets.only(bottom: size.height * 0.06, right: size.width * 0.14),
+      // decoration: BoxDecoration(
+      //     shape: BoxShape.circle,
+      //     border: Border.all(color: primaryAccent)
+      // ),
+      child: Stack(
+        children: [
+          Align(
+            alignment: Alignment.bottomRight,
+            child: Text(
+              (!isFlashOff)? "On" : "Off",
+              style: textCustom(FontWeight.w100, 14, primaryAccent),),
+          ),
+          Positioned.fill(
+            child: IconButton(
+                onPressed: (){
+                  setState(() {
+                    if(!isFlashOff){
+                      _controller!.setFlashMode(FlashMode.off);
+
+                    } else{
+                      _controller!.setFlashMode(FlashMode.always);
+                    }
+                    isFlashOff = !isFlashOff;
+                  });
+                },
+                icon: Icon(
+                  (!isFlashOff)? Icons.flash_on : Icons.flash_off,
+                  color: primaryAccent,
+                  size: 38,
+                )
+            ),
+          ),
+        ],
+      )
+    );
+  }
+
   Widget? _floatingActionButton() {
     if (_mode == ScreenMode.gallery) return null;
     if (cameras.length == 1) return null;
     return SizedBox(
-        height: 70.0,
-        width: 70.0,
+        height: roundButtonSize,
+        width: roundButtonSize,
         child: FloatingActionButton(
           backgroundColor: primaryAccent,
           onPressed: _takePicture,
@@ -207,11 +258,25 @@ class _CameraViewState extends State<CameraView> {
           //     },
           //   ),
           // ),
-          Positioned(
-              bottom: 50,
-              left: 50,
-              right: 50,
-              child: _floatingActionButton() ?? Container()),
+          Align(
+            alignment: Alignment.topLeft,
+            child: Container(
+              margin: EdgeInsets.only(top: size.height * 0.05, left: size.width * 0.03),
+              child: IconButton(
+                  onPressed: (){
+                    Get.offAllNamed(Routes.MAIN);
+                  }, icon: Icon(Icons.close, color: primaryAccent, size: 32,)),
+            ),
+          ),
+          Align(
+            alignment: Alignment.bottomRight,
+            child: _flashButton(size)
+          ),
+          Align(
+            alignment: Alignment.bottomCenter,
+              child: Container(
+                margin: EdgeInsets.only(bottom: size.height * 0.05),
+                  child: _floatingActionButton() ?? Container())),
           Positioned(
             bottom: 120,
             left: 50,

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:google_mlkit_text_recognition/google_mlkit_text_recognition.dart';
+import 'package:halalin/app/constant/theme.dart';
 import 'package:halalin/app/constant/values.dart';
 import 'package:halalin/app/data/models/ingredient.dart';
 import 'package:halalin/app/data/services/halal_services.dart';
@@ -26,10 +27,18 @@ class ResultView extends GetView<ResultController> {
 
     return WillPopScope(
       onWillPop: () async {
-        Get.offAllNamed(Routes.MAIN);
+        Get.offAllNamed(Routes.OCR);
         return false;
       },
       child: Scaffold(
+        appBar: AppBar(
+          backgroundColor: primaryAccent,
+          leading: IconButton(
+              onPressed: (){
+                Get.offAllNamed(Routes.OCR);
+              },
+              icon: Icon(Icons.arrow_back, color: Colors.black,)),
+        ),
         body: FutureBuilder<RecognizedText>(
           future: textRecognizer.processImage(inputImage),
           builder: (ctx, snapshot) {
