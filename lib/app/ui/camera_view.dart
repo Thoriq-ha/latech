@@ -211,7 +211,9 @@ class _CameraViewState extends State<CameraView> {
             left: 50,
             right: 50,
             child: Slider(
-              thumbColor: Colors.greenAccent,
+              thumbColor: primary,
+              activeColor: primaryAccent,
+              inactiveColor: inactive,
               value: zoomLevel,
               min: minZoomLevel,
               max: maxZoomLevel,
