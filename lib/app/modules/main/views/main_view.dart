@@ -29,8 +29,8 @@ class MainView extends GetView<MainController> {
             }
           },
           items: [
-            tabItem(Icons.apps, 0, controller.currentIndex.value),
-            tabItem(Icons.camera, 1, controller.currentIndex.value),
+            tabItem(Icons.home_outlined, 0, controller.currentIndex.value),
+            tabItem(Icons.photo_camera_outlined, 1, controller.currentIndex.value),
             tabItem(Icons.bookmark_border, 2, controller.currentIndex.value),
           ]);
     }));
