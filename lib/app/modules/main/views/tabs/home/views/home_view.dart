@@ -1,9 +1,12 @@
+import 'package:akar_icons_flutter/akar_icons_flutter.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:halalin/app/constant/theme.dart';
 import 'package:halalin/app/constant/values.dart';
 import 'package:halalin/app/data/models/product.dart';
+import 'package:halalin/app/routes/app_pages.dart';
+import 'package:iconsax/iconsax.dart';
 
 import '../controllers/home_controller.dart';
 
@@ -20,9 +23,16 @@ class HomeView extends GetView<HomeController> {
           floating: false,
           snap: false,
           shape: appBarShape(),
+          actions: [
+            InkWell(
+                child: IconButton(
+                    onPressed: (){
+                      Get.toNamed(Routes.ABOUT);
+                    }, icon: const Icon(Iconsax.info_circle)))
+          ],
           flexibleSpace: appBarBackground(),
           bottom: appBarBottom(context),
-          expandedHeight: getDeviceHeight(context) * 0.26);
+          expandedHeight: getDeviceHeight(context) * 0.3);
 
       Widget textSliver = SliverToBoxAdapter(
         child: Padding(
@@ -182,11 +192,12 @@ class HomeView extends GetView<HomeController> {
               onChanged: (value) {
                 controller.searchProduct(query: value);
               },
+              cursorColor: primary,
               style: textRegularDefault,
               maxLines: 1,
               maxLength: 40,
               decoration: InputDecoration(
-                prefixIcon: const Icon(Icons.search),
+                prefixIcon: Icon(AkarIcons.search, color: primary,),
                 filled: true,
                 fillColor: primaryAccent,
                 border: OutlineInputBorder(
