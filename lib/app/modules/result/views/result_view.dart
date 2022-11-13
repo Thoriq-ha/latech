@@ -4,11 +4,10 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:google_mlkit_text_recognition/google_mlkit_text_recognition.dart';
-import 'package:halalin/app/constant/theme.dart';
 import 'package:halalin/app/constant/values.dart';
 import 'package:halalin/app/data/models/ingredient.dart';
+import 'package:halalin/app/data/services/halal_services.dart';
 import 'package:halalin/app/routes/app_pages.dart';
-import 'package:halalin/app/services/halal_services.dart';
 import 'package:halalin/app/ui/status.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 

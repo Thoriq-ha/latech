@@ -3,7 +3,7 @@ import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
 import 'package:google_mlkit_text_recognition/google_mlkit_text_recognition.dart';
-import 'package:halalin/app/services/halal_services.dart';
+import 'package:halalin/app/data/services/halal_services.dart';
 
 import 'coordinates_translator.dart';
 
