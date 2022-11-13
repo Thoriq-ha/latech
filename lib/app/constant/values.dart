@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 
+const String BOOKMARK_KEY = 'bookmark_key';
+
 const int splashDuration = 3;
 
 const int cameraNavBarIndex = 1;

@@ -1,23 +1,22 @@
+import 'dart:convert';
+
 import 'package:get/get.dart';
+import 'package:halalin/app/constant/values.dart';
+import 'package:halalin/app/data/models/product.dart';
+import 'package:halalin/app/data/services/service_preferences.dart';
 
 class BookmarkController extends GetxController {
-  //TODO: Implement BookmarkController
+  RxList<Product> bookmarks = RxList();
 
-  final count = 0.obs;
   @override
   void onInit() {
+    getDataBookmarkProduct();
     super.onInit();
   }
 
-  @override
-  void onReady() {
-    super.onReady();
+  Future<void> getDataBookmarkProduct() async {
+    var res = await PreferencesService.getDataBookmarkProduct();
+    bookmarks.clear();
+    bookmarks.addAll(res);
   }
-
-  @override
-  void onClose() {
-    super.onClose();
-  }
-
-  void increment() => count.value++;
 }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_mlkit_text_recognition/google_mlkit_text_recognition.dart';
 import 'package:halalin/app/data/models/ingredient.dart';
-import 'package:halalin/app/services/halal_services.dart';
+import 'package:halalin/app/data/services/halal_services.dart';
 import 'package:halalin/app/ui/text_detector_painter.dart';
 
 import '../../../../../../ui/camera_view.dart';
