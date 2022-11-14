@@ -52,42 +52,40 @@ class BookmarkView extends GetView<BookmarkController> {
             imageView(context, index),
             Container(
               padding: const EdgeInsets.all(8.0),
-              child: Expanded(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: [
-                    Container(
-                      width: getDeviceWidth(context) * 0.377,
-                      height: getDeviceHeight(context) * 0.1,
-                      // color: Colors.amber,
-                      child: Text(
-                        controller.bookmarks.value[index].nama,
-                        maxLines: 2,
-                        overflow: TextOverflow.ellipsis,
-                        style: textMediumDefault,
-                      ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  Container(
+                    width: getDeviceWidth(context) * 0.377,
+                    height: getDeviceHeight(context) * 0.1,
+                    // color: Colors.amber,
+                    child: Text(
+                      controller.bookmarks.value[index].nama,
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                      style: textMediumDefault,
                     ),
-                    IconButton(
-                        onPressed: () {
-                          if (c.bookmarks[index].is_bookmark.toLowerCase() ==
-                              'true') {
-                            c.bookmarks[index].is_bookmark = 'false';
-                            c.products[index].is_bookmark = 'false';
-                          } else {
-                            c.bookmarks[index].is_bookmark = 'true';
-                            c.products[index].is_bookmark = 'true';
-                          }
+                  ),
+                  IconButton(
+                      onPressed: () {
+                        if (c.bookmarks[index].is_bookmark.toLowerCase() ==
+                            'true') {
+                          c.bookmarks[index].is_bookmark = 'false';
+                          c.products[index].is_bookmark = 'false';
+                        } else {
+                          c.bookmarks[index].is_bookmark = 'true';
+                          c.products[index].is_bookmark = 'true';
+                        }
 
-                          c.bookmarks.refresh();
-                          c.updateSaveDataBookmarkProduct();
-                        },
-                        icon: Icon(
-                          Icons.bookmark,
-                          color: primary,
-                        ))
-                  ],
-                ),
+                        c.bookmarks.refresh();
+                        c.updateSaveDataBookmarkProduct();
+                      },
+                      icon: Icon(
+                        Icons.bookmark,
+                        color: primary,
+                      ))
+                ],
               ),
             ),
           ],
