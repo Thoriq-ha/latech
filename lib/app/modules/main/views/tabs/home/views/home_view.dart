@@ -69,85 +69,95 @@ class HomeView extends GetView<HomeController> {
                     return SizedBox(
                       height: 500,
                       width: 500,
-                      child: Card(
-                          semanticContainer: true,
-                          clipBehavior: Clip.antiAliasWithSaveLayer,
-                          elevation: 3.0,
-                          shape: const ContinuousRectangleBorder(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(24))),
-                          child: Stack(
-                            children: [
-                              Align(
-                                alignment: Alignment.bottomCenter,
-                                child: Padding(
-                                  padding: const EdgeInsets.symmetric(
-                                      horizontal: 16.0, vertical: 8.0),
-                                  child: Text(
-                                    controller.products[index].nama,
-                                    maxLines: 1,
-                                    style: textMediumDefault,
+                      child: GestureDetector(
+                        onTap: () {
+                          Get.toNamed(
+                            Routes.DETAIL_PRODUCT,
+                            arguments: controller.products[index],
+                          );
+                        },
+                        child: Card(
+                            semanticContainer: true,
+                            clipBehavior: Clip.antiAliasWithSaveLayer,
+                            elevation: 3.0,
+                            shape: const ContinuousRectangleBorder(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(24))),
+                            child: Stack(
+                              children: [
+                                Align(
+                                  alignment: Alignment.bottomCenter,
+                                  child: Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                        horizontal: 16.0, vertical: 8.0),
+                                    child: Text(
+                                      controller.products[index].nama,
+                                      maxLines: 1,
+                                      style: textMediumDefault,
+                                    ),
                                   ),
                                 ),
-                              ),
-                              Align(
-                                alignment: Alignment.topCenter,
-                                child: Container(
-                                  padding: const EdgeInsets.all(8),
-                                  height: 500,
-                                  child: Image.network(
-                                      controller.products[index].gambar,
-                                      errorBuilder:
-                                          (context, error, stackTrace) =>
-                                              Center(
-                                                child: Image.asset(
-                                                  foodIcon,
-                                                  fit: BoxFit.fitWidth,
-                                                ),
-                                              )),
+                                Align(
+                                  alignment: Alignment.topCenter,
+                                  child: Container(
+                                    padding: const EdgeInsets.all(8),
+                                    height: 500,
+                                    child: Image.network(
+                                        controller.products[index].gambar,
+                                        errorBuilder:
+                                            (context, error, stackTrace) =>
+                                                Center(
+                                                  child: Image.asset(
+                                                    foodIcon,
+                                                    fit: BoxFit.fitWidth,
+                                                  ),
+                                                )),
+                                  ),
                                 ),
-                              ),
-                              Align(
-                                alignment: Alignment.center,
-                                child: Container(
-                                  decoration: const BoxDecoration(
-                                      gradient: LinearGradient(
-                                    begin: Alignment(0, 0),
-                                    end: Alignment(0, 2),
-                                    colors: [
-                                      Color(0x00ffffff),
-                                      Colors.black,
-                                    ],
-                                  )),
-                                ),
-                              ),
-                              Align(
-                                alignment: Alignment.topRight,
-                                child: IconButton(
-                                    onPressed: () async {
-                                      if (c.products[index].is_bookmark
-                                              .toLowerCase() ==
-                                          'true') {
-                                        c.products[index].is_bookmark = 'false';
-                                      } else {
-                                        c.products[index].is_bookmark = 'true';
-                                      }
-                                      c.products.refresh();
-                                      c.updateSaveDataBookmarkProduct();
-                                      // await c.setLabelBookmarkProduct();
-                                    },
-                                    icon: Icon(
-                                      (controller.products[index].is_bookmark
-                                                  .toLowerCase() ==
-                                              'true')
-                                          ? Icons.bookmark
-                                          : Icons.bookmark_border,
-                                      size: 24,
-                                      color: primary,
+                                Align(
+                                  alignment: Alignment.center,
+                                  child: Container(
+                                    decoration: const BoxDecoration(
+                                        gradient: LinearGradient(
+                                      begin: Alignment(0, 0),
+                                      end: Alignment(0, 2),
+                                      colors: [
+                                        Color(0x00ffffff),
+                                        Colors.black,
+                                      ],
                                     )),
-                              ),
-                            ],
-                          )),
+                                  ),
+                                ),
+                                Align(
+                                  alignment: Alignment.topRight,
+                                  child: IconButton(
+                                      onPressed: () async {
+                                        if (c.products[index].is_bookmark
+                                                .toLowerCase() ==
+                                            'true') {
+                                          c.products[index].is_bookmark =
+                                              'false';
+                                        } else {
+                                          c.products[index].is_bookmark =
+                                              'true';
+                                        }
+                                        ;
+                                        c.products.refresh();
+                                        c.updateSaveDataBookmarkProduct();
+                                      },
+                                      icon: Icon(
+                                        (controller.products[index].is_bookmark
+                                                    .toLowerCase() ==
+                                                'true')
+                                            ? Icons.bookmark
+                                            : Icons.bookmark_border,
+                                        size: 24,
+                                        color: primary,
+                                      )),
+                                ),
+                              ],
+                            )),
+                      ),
                     );
                   },
                   childCount: controller.products.length,

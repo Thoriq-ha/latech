@@ -2,6 +2,8 @@ import 'package:get/get.dart';
 
 import '../modules/about/bindings/about_binding.dart';
 import '../modules/about/views/about_view.dart';
+import '../modules/detail_product/bindings/detail_product_binding.dart';
+import '../modules/detail_product/views/detail_product_view.dart';
 import '../modules/detail_result/bindings/detail_result_binding.dart';
 import '../modules/detail_result/views/detail_result_view.dart';
 import '../modules/main/bindings/main_binding.dart';
@@ -63,6 +65,11 @@ class AppPages {
       name: _Paths.BOOKMARK,
       page: () => const BookmarkView(),
       binding: BookmarkBinding(),
+    ),
+    GetPage(
+      name: _Paths.DETAIL_PRODUCT,
+      page: () => const DetailProductView(),
+      binding: DetailProductBinding(),
     ),
   ];
 }

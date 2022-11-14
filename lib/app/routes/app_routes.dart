@@ -11,6 +11,7 @@ abstract class Routes {
   static const ABOUT = _Paths.ABOUT;
   static const DETAIL_RESULT = _Paths.DETAIL_RESULT;
   static const BOOKMARK = _Paths.BOOKMARK;
+  static const DETAIL_PRODUCT = _Paths.DETAIL_PRODUCT;
 }
 
 abstract class _Paths {
@@ -23,4 +24,5 @@ abstract class _Paths {
   static const ABOUT = '/about';
   static const DETAIL_RESULT = '/detail-result';
   static const BOOKMARK = '/bookmark';
+  static const DETAIL_PRODUCT = '/detail-product';
 }
