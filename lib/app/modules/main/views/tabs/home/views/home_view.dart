@@ -29,9 +29,10 @@ class HomeView extends GetView<HomeController> {
                 actions: [
                   InkWell(
                     child: IconButton(
-                        onPressed: (){
+                        onPressed: () {
                           Get.toNamed(Routes.ABOUT);
-                        }, icon: const Icon(Iconsax.info_circle)),
+                        },
+                        icon: const Icon(Iconsax.info_circle)),
                   )
                 ],
                 flexibleSpace: appBarBackground(),
@@ -124,20 +125,31 @@ class HomeView extends GetView<HomeController> {
                                 alignment: Alignment.topRight,
                                 child: IconButton(
                                     onPressed: () async {
-                                      if (c.savedProduct.contains(
-                                          controller.products[index])) {
-                                        c.savedProduct
-                                            .remove(controller.products[index]);
-                                      } else {
-                                        c.savedProduct
-                                            .add(controller.products[index]);
-                                      }
+                                      // if (c.savedProduct.contains(
+                                      //     controller.products[index])) {
+                                      //   c.savedProduct
+                                      //       .remove(controller.products[index]);
+                                      // } else {
+                                      //   c.savedProduct
+                                      //       .add(controller.products[index]);
+                                      // }
 
+                                      if (c.products[index].is_bookmark
+                                              .toLowerCase() ==
+                                          'true') {
+                                        c.products[index].is_bookmark = 'false';
+                                      } else {
+                                        c.products[index].is_bookmark = 'true';
+                                      }
+                                      ;
+                                      c.products.refresh();
                                       c.updateSaveDataBookmarkProduct();
-                                      await c.setLabelBookmarkProduct();
+                                      // await c.setLabelBookmarkProduct();
                                     },
                                     icon: Icon(
-                                      (controller.products[index].is_bookmark)
+                                      (controller.products[index].is_bookmark
+                                                  .toLowerCase() ==
+                                              'true')
                                           ? Icons.bookmark
                                           : Icons.bookmark_border,
                                       size: 24,

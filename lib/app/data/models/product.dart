@@ -6,7 +6,7 @@ class Product {
   String nama;
   String ingredient;
   String gambar;
-  bool is_bookmark;
+  String is_bookmark;
 
   Product({
     required this.nama,
@@ -20,7 +20,7 @@ class Product {
       nama: json['nama'],
       ingredient: json['ingredient'],
       gambar: json['gambar'],
-      is_bookmark: false,
+      is_bookmark: json['is_bookmark'] ?? 'false',
     );
   }
 

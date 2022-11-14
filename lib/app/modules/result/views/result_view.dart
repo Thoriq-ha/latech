@@ -36,12 +36,18 @@ class ResultView extends GetView<ResultController> {
         appBar: AppBar(
           backgroundColor: primaryAccent,
           leading: IconButton(
-              onPressed: (){
+              onPressed: () {
                 Get.offAllNamed(Routes.OCR);
               },
-              icon: const Icon(Iconsax.arrow_left, color: Colors.black,)),
+              icon: const Icon(
+                Iconsax.arrow_left,
+                color: Colors.black,
+              )),
           centerTitle: true,
-          title: Text(resultViewAppbarTitle, style: textCustom(mediumFont, 18, Colors.black),),
+          title: Text(
+            resultViewAppbarTitle,
+            style: textCustom(mediumFont, 18, Colors.black),
+          ),
         ),
         body: FutureBuilder<RecognizedText>(
           future: textRecognizer.processImage(inputImage),
@@ -75,11 +81,11 @@ class ResultView extends GetView<ResultController> {
       minHeight: 60,
       isDraggable: true,
       backdropEnabled: true,
-      borderRadius: const BorderRadius.only(topRight: Radius.circular(20), topLeft: Radius.circular(20)),
+      borderRadius: const BorderRadius.only(
+          topRight: Radius.circular(20), topLeft: Radius.circular(20)),
       header: SizedBox(
         height: 60,
         width: MediaQuery.of(context).size.width,
-
         child: IconButton(
             onPressed: () {
               if (controller.slidingController.panelPosition == 1) {
@@ -91,15 +97,15 @@ class ResultView extends GetView<ResultController> {
             icon: const Icon(Iconsax.arrow_circle_up)),
       ),
       panel: Container(
-          decoration: BoxDecoration(
-              color: primaryAccent,
-              borderRadius: const BorderRadius.only(topLeft: Radius.circular(60), topRight: Radius.circular(60))
-          ),
+        decoration: BoxDecoration(
+            color: primaryAccent,
+            borderRadius: const BorderRadius.only(
+                topLeft: Radius.circular(60), topRight: Radius.circular(60))),
         child: ListView(
           children: [
             Container(
               color: Colors.transparent,
-                height: 60,
+              height: 60,
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 6),
@@ -113,11 +119,9 @@ class ResultView extends GetView<ResultController> {
               padding: const EdgeInsets.symmetric(
                 horizontal: 16,
               ),
-              child: Text(snapshot.data!.text,
-                  textAlign: TextAlign.justify, maxLines: 5),
+              child: Text(snapshot.data!.text, textAlign: TextAlign.justify),
             ),
-            const SizedBox(
-                height: 24),
+            const SizedBox(height: 24),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 6),
               child: Text(
@@ -126,79 +130,82 @@ class ResultView extends GetView<ResultController> {
                 style: textCustom(semiBoldFont, 20, Colors.black),
               ),
             ),
-            if (snapshot.data != null)
-              FutureBuilder<List<Ingredient>>(
-                future: HalalServices.getHalal(input: snapshot.data!.text),
-                builder: (context, snapshot) {
-                  if (snapshot.connectionState == ConnectionState.waiting) {
-                    return const CircularProgressIndicator();
-                  } else {
-                    if (snapshot.data == null) {
-                      return Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                        child: Text(
-                            'Result Is Empty ',
-                            textAlign: TextAlign.justify,
-                            style: textCustom(regularFont, 16, Colors.black),
-                        ),
-                      );
-                    }
-                    return Padding(
-                      padding: const EdgeInsets.symmetric(
-                          vertical: 12, horizontal: 16),
-                      child: Container(
-                        color: primaryAccent,
-                        height: (200.0 * snapshot.data!.length),
-                        child: ListView.builder(
-                          physics: const NeverScrollableScrollPhysics(),
-                          itemCount: snapshot.data!.length,
-                          itemBuilder: (context, index) {
-                            var dataResult = snapshot.data![index];
-                            return Padding(
-                              padding: const EdgeInsets.symmetric(vertical: 16),
-                              child: Stack(
-                                children: [
-                                  Image.asset(resultCard),
-                                  Padding(
-                                    padding: const EdgeInsets.all(26.0),
-                                    child: SizedBox(
-                                      height: 100,
-                                      child: Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          Text(dataResult.name,
-                                              style:
-                                                  const TextStyle(fontSize: 14)),
-                                          Text(
-                                            dataResult.kode,
-                                            style: const TextStyle(
-                                                fontSize: 20,
-                                                fontWeight: FontWeight.w600),
+            (snapshot.data != null)
+                ? FutureBuilder<List<Ingredient>>(
+                    future: HalalServices.getHalal(input: snapshot.data!.text),
+                    builder: (context, ingredients) {
+                      if (snapshot.connectionState == ConnectionState.waiting) {
+                        return const CircularProgressIndicator();
+                      } else {
+                        if (ingredients.data == null) {
+                          return Padding(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 16, vertical: 8),
+                            child: Text(
+                              'Result Is Empty ',
+                              textAlign: TextAlign.justify,
+                              style: textCustom(regularFont, 16, Colors.black),
+                            ),
+                          );
+                        }
+                        return Padding(
+                          padding: const EdgeInsets.symmetric(
+                              vertical: 12, horizontal: 16),
+                          child: Container(
+                            color: primaryAccent,
+                            height: (200.0 * ingredients.data!.length),
+                            child: ListView.builder(
+                              physics: const NeverScrollableScrollPhysics(),
+                              itemCount: ingredients.data!.length,
+                              itemBuilder: (context, index) {
+                                var dataResult = ingredients.data![index];
+                                return Padding(
+                                  padding:
+                                      const EdgeInsets.symmetric(vertical: 16),
+                                  child: Stack(
+                                    children: [
+                                      Image.asset(resultCard),
+                                      Padding(
+                                        padding: const EdgeInsets.all(26.0),
+                                        child: SizedBox(
+                                          height: 100,
+                                          child: Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              Text(dataResult.name,
+                                                  style: const TextStyle(
+                                                      fontSize: 14)),
+                                              Text(
+                                                dataResult.kode,
+                                                style: const TextStyle(
+                                                    fontSize: 20,
+                                                    fontWeight:
+                                                        FontWeight.w600),
+                                              ),
+                                              Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceBetween,
+                                                  children: label(
+                                                      ingred: dataResult)),
+                                            ],
                                           ),
-                                          Row(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.spaceBetween,
-                                              children:
-                                                  label(ingred: dataResult)),
-                                        ],
-                                      ),
-                                    ),
-                                  )
-                                ],
-                              ),
-                            );
-                          },
-                        ),
-                      ),
-                    );
-                  }
-                },
-              )
-            else
-              const Text('Result is Empty')
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                );
+                              },
+                            ),
+                          ),
+                        );
+                      }
+                    },
+                  )
+                : const Text('Result is Empty !')
           ],
         ),
       ),

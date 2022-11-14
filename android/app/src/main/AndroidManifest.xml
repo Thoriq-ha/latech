@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.halalin">
    <application
-        android:label="halalin"
+        android:label="Latech App"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

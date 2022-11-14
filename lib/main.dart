@@ -15,7 +15,7 @@ Future<void> main() async {
 
   runApp(
     GetMaterialApp(
-      title: "Application",
+      title: "Latech App",
       debugShowCheckedModeBanner: false,
       initialRoute: AppPages.INITIAL,
       getPages: AppPages.routes,
