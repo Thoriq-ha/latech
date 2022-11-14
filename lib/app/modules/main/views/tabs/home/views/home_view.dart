@@ -104,6 +104,25 @@ class HomeView extends GetView<HomeController> {
                                     height: 500,
                                     child: Image.network(
                                         controller.products[index].gambar,
+                                        loadingBuilder: (BuildContext context,
+                                            Widget child,
+                                            ImageChunkEvent? loadingProgress) {
+                                          if (loadingProgress == null)
+                                            return child;
+                                          return Center(
+                                            child: CircularProgressIndicator(
+                                              color: primary,
+                                              value: loadingProgress
+                                                          .expectedTotalBytes !=
+                                                      null
+                                                  ? loadingProgress
+                                                          .cumulativeBytesLoaded /
+                                                      loadingProgress
+                                                          .expectedTotalBytes!
+                                                  : null,
+                                            ),
+                                          );
+                                        },
                                         errorBuilder:
                                             (context, error, stackTrace) =>
                                                 Center(

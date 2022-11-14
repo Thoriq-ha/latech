@@ -81,7 +81,6 @@ class BookmarkView extends GetView<BookmarkController> {
 
                           c.bookmarks.refresh();
                           c.updateSaveDataBookmarkProduct();
-
                         },
                         icon: Icon(
                           Icons.bookmark,
@@ -105,9 +104,22 @@ class BookmarkView extends GetView<BookmarkController> {
       ),
       child: Container(
           width: getDeviceWidth(context) * 0.4,
-          padding: EdgeInsets.all(8),
+          padding: const EdgeInsets.all(8),
           child: Image.network(
             controller.bookmarks.value[index].gambar,
+            loadingBuilder: (BuildContext context, Widget child,
+                ImageChunkEvent? loadingProgress) {
+              if (loadingProgress == null) return child;
+              return Center(
+                child: CircularProgressIndicator(
+                  color: primary,
+                  value: loadingProgress.expectedTotalBytes != null
+                      ? loadingProgress.cumulativeBytesLoaded /
+                          loadingProgress.expectedTotalBytes!
+                      : null,
+                ),
+              );
+            },
             errorBuilder: (context, error, stackTrace) => Image.asset(foodIcon),
           )),
     );
