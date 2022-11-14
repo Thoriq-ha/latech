@@ -125,15 +125,6 @@ class HomeView extends GetView<HomeController> {
                                 alignment: Alignment.topRight,
                                 child: IconButton(
                                     onPressed: () async {
-                                      // if (c.savedProduct.contains(
-                                      //     controller.products[index])) {
-                                      //   c.savedProduct
-                                      //       .remove(controller.products[index]);
-                                      // } else {
-                                      //   c.savedProduct
-                                      //       .add(controller.products[index]);
-                                      // }
-
                                       if (c.products[index].is_bookmark
                                               .toLowerCase() ==
                                           'true') {
@@ -141,7 +132,6 @@ class HomeView extends GetView<HomeController> {
                                       } else {
                                         c.products[index].is_bookmark = 'true';
                                       }
-                                      ;
                                       c.products.refresh();
                                       c.updateSaveDataBookmarkProduct();
                                       // await c.setLabelBookmarkProduct();
